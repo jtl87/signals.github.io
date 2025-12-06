@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PROJECT_NAME – AI-Powered Trading Signals</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="AI-powered trading signals with regime detection, ML forecasts and disciplined risk controls – delivered via Telegram."
+  />
+
+  <style>
+    :root {
+      --bg: #05060a;
+      --bg-alt: #0c0f18;
+      --card: #111320;
+      --accent: #4fd1c5;
+      --accent-soft: rgba(79, 209, 197, 0.12);
+      --text: #f7fafc;
+      --muted: #a0aec0;
+      --border: #24283b;
+      --danger: #f56565;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #151a2f 0, var(--bg) 55%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(79, 209, 197, 0.08);
+      color: var(--accent);
+      border: 1px solid var(--accent-soft);
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #48bb78;
+      box-shadow: 0 0 0 5px rgba(72, 187, 120, 0.25);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 64px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3.1vw, 2.9rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 18px 0 14px;
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 460px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 11px 22px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #020617;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 30px rgba(79, 209, 197, 0.25);
+    }
+
+    .btn-primary span {
+      font-size: 1.1rem;
+    }
+
+    .btn-ghost {
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: transparent;
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 18px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-meta strong {
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, #141827, var(--card));
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      padding: 18px 18px 16px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
+      font-size: 0.8rem;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .hero-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    .hero-tag {
+      font-size: 0.7rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(76, 81, 132, 0.6);
+      color: var(--text);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .stat {
+      padding: 9px 9px 8px;
+      border-radius: 12px;
+      background: rgba(14, 18, 33, 0.94);
+      border: 1px solid rgba(53, 60, 105, 0.9);
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .stat-value {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .stat-value.pos {
+      color: #68d391;
+    }
+
+    .stat-value.neg {
+      color: var(--danger);
+    }
+
+    .section {
+      margin-bottom: 60px;
+      padding: 28px 22px;
+      border-radius: 20px;
+      background: rgba(10, 14, 30, 0.98);
+      border: 1px solid var(--border);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    .section-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 16px 15px 14px;
+      font-size: 0.88rem;
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .badge-inline {
+      display: inline-block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      background: rgba(79, 209, 197, 0.1);
+      border-radius: 999px;
+      padding: 3px 9px;
+      margin-bottom: 7px;
+    }
+
+    .list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .list li {
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .faq-item + .faq-item {
+      border-top: 1px solid var(--border);
+      margin-top: 14px;
+      padding-top: 14px;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .section {
+        padding: 22px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="logo">PROJECT_NAME</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#methodology">Methodology</a>
+        <a href="#transparency">Transparency</a>
+        <a href="#faq">FAQ</a>
+        <a href="#join">Join</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="pill">
+          <span class="pill-dot"></span>
+          <span>AI-Powered Trading Signals</span>
+        </div>
+        <h1 class="hero-title">
+          Research-Driven Signals with Real Risk Controls.
+        </h1>
+        <p class="hero-subtitle">
+          Machine-learning forecasts, multi-timeframe regime detection, and
+          volatility-aware risk rules — delivered in real time via Telegram.
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://t.me/your_channel_here" target="_blank" rel="noopener">
+            <button class="btn-primary">
+              Join Free Signal Channel <span>➜</span>
+            </button>
+          </a>
+          <a href="#methodology">
+            <button class="btn-ghost">View System Methodology</button>
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <div>
+            <strong>Assets</strong><br />
+            FX majors & crosses, XAU/USD
+          </div>
+          <div>
+            <strong>Style</strong><br />
+            Regime-aware, fully systematic
+          </div>
+          <div>
+            <strong>Access</strong><br />
+            Free signal channel, optional advanced tiers later
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero right card -->
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <div>
+            <div class="hero-badge">Live Model Snapshot</div>
+          </div>
+          <div class="hero-tag">Non-Discretionary</div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-label">Regime</div>
+            <div class="stat-value">Trend–Expansion</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Signal Bias</div>
+            <div class="stat-value pos">Long &gt; Short</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Risk Mode</div>
+            <div class="stat-value">Normal</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">ATR Stop Logic</div>
+            <div class="stat-value">Dynamic</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Policy Layer</div>
+            <div class="stat-value">Calibrated</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Override</div>
+            <div class="stat-value neg">None</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">About the System</div>
+          <div class="section-title">
+            A Multi-Year Research Project, Not a Weekend Indicator Pack.
+          </div>
+        </div>
+        <p class="section-desc">
+          PROJECT_NAME started as a private research pipeline focused on FX and
+          metals: understanding how different market regimes behave and how
+          machine learning can forecast directional edge while respecting risk.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <span class="badge-inline">Principle 01</span>
+          <h3>Predictive Modelling &gt; Reactive Signals</h3>
+          <p class="muted">
+            Signals are generated by a neural model trained on multi-year
+            historical data with walk-forward validation — not just a stack of
+            moving averages. The goal is to estimate edge, not simply react to
+            price.
+          </p>
+        </div>
+        <div class="card">
+          <span class="badge-inline">Principle 02</span>
+          <h3>Regime Awareness</h3>
+          <p class="muted">
+            Trending, compressing, and volatile environments behave
+            differently. A dedicated regime model classifies these environments
+            and conditions when and how signals are allowed to fire.
+          </p>
+        </div>
+        <div class="card">
+          <span class="badge-inline">Principle 03</span>
+          <h3>Non-Negotiable Risk Rules</h3>
+          <p class="muted">
+            Every signal respects ATR-based stops, controlled risk–reward
+            ratios, and policy-layer thresholds calibrated via large-scale
+            hyperparameter optimization. No martingale, no averaging down.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHODOLOGY / HOW IT WORKS -->
+    <section id="methodology" class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Methodology</div>
+          <div class="section-title">How PROJECT_NAME Generates Signals.</div>
+        </div>
+        <p class="section-desc">
+          From raw data to live signal, the pipeline is fully systematic and
+          repeatable. Below is a simplified view of the workflow used to
+          produce trade ideas.
+        </p>
+      </div>
+
+      <div class="grid grid-4">
+        <div class="card">
+          <h3>01 — Data & Features</h3>
+          <p class="muted">
+            Ingests multi-timeframe OHLCV data (e.g., 15m, 60m, 240m) and
+            constructs a curated feature set that captures volatility,
+            momentum shifts, liquidity windows, extension filters, and custom
+            indicators.
+          </p>
+        </div>
+        <div class="card">
+          <h3>02 — Neural Forecasts</h3>
+          <p class="muted">
+            A PyTorch-based NeuralSignalModel estimates directional edge.
+            Hyperparameters are tuned with Optuna across hundreds of trials
+            with strict train/validation splits and out-of-sample testing.
+          </p>
+        </div>
+        <div class="card">
+          <h3>03 — Regime & Policy</h3>
+          <p class="muted">
+            A regime model classifies trend/compression/expansion states. A
+            policy layer applies thresholds, persistence rules, and volatility
+            filters to decide whether a trade is allowed.
+          </p>
+        </div>
+        <div class="card">
+          <h3>04 — Signal Release</h3>
+          <p class="muted">
+            Once a setup passes all filters, the system generates a signal
+            with entry, stop, target(s), and optional confidence metrics —
+            then automatically publishes it via Telegram.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSPARENCY -->
+    <section id="transparency" class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Transparency</div>
+          <div class="section-title">
+            No Black Box Claims. Just Clear, Quantifiable Rules.
+          </div>
+        </div>
+        <p class="section-desc">
+          Most signal groups show screenshots but not process. PROJECT_NAME
+          focuses on repeatability, documentation, and giving users enough
+          context to understand how signals are generated.
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>What You Can Expect</h3>
+          <ul class="list muted">
+            <li>Weekly performance summaries and trade counts.</li>
+            <li>Breakdowns by market regime and session.</li>
+            <li>Backtest and walk-forward metrics (non-guarantee, educational only).</li>
+            <li>
+              Feature-attribution insights using SHAP/gradient-based
+              explainability tools where appropriate.
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>What You Should Not Expect</h3>
+          <ul class="list muted">
+            <li>Guarantees of future performance.</li>
+            <li>Emotional overrides or “hero trades”.</li>
+            <li>
+              Hidden martingale, grid, or position-averaging logic that
+              silently amplifies risk.
+            </li>
+            <li>
+              Marketing fluff without numbers. If data is shown, the context
+              will be explained.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">FAQ</div>
+          <div class="section-title">Common Questions.</div>
+        </div>
+        <p class="section-desc">
+          A quick overview of what PROJECT_NAME is — and just as importantly,
+          what it isn’t.
+        </p>
+      </div>
+
+      <div>
+        <div class="faq-item">
+          <div class="faq-q">Is this financial advice?</div>
+          <p class="muted">
+            No. Signals are provided for educational and informational
+            purposes only and should not be treated as investment advice.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Do you guarantee profits?</div>
+          <p class="muted">
+            No trading system can guarantee outcomes. The goal is to create a
+            statistically positive, risk-controlled framework, not certainty.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Which markets does the system trade?</div>
+          <p class="muted">
+            The focus is primarily on FX pairs and XAU/USD, with specific
+            attention to liquidity windows and session overlaps. Additional
+            assets may be added depending on demand and research.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Is the system fully automated?</div>
+          <p class="muted">
+            Yes. Signals are generated by a rules-driven pipeline without
+            discretionary overrides. Human input is limited to research,
+            configuration, and monitoring.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Will there be premium tiers?</div>
+          <p class="muted">
+            Potentially in the future — for example, deeper analytics,
+            regime dashboards, API access to model outputs, or custom
+            symbol/risk configurations. For now, the Telegram signal
+            channel is free.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOIN / CTA -->
+    <section id="join" class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Get Started</div>
+          <div class="section-title">Join the Free Signal Channel.</div>
+        </div>
+        <p class="section-desc">
+          Connect your own trading decisions with a research-driven signal
+          stream. You stay in control of position size, risk, and execution —
+          the system provides the setups.
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>What You Receive</h3>
+          <ul class="list muted">
+            <li>Real-time trade ideas with entry, stop, and target levels.</li>
+            <li>Signals aligned with regime and volatility context.</li>
+            <li>
+              Optional performance and transparency updates as the project
+              evolves.
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Join Now</h3>
+          <p class="muted" style="margin-bottom: 12px;">
+            Access is currently free while PROJECT_NAME is in its
+            early public phase.
+          </p>
+          <a href="https://t.me/your_channel_here" target="_blank" rel="noopener">
+            <button class="btn-primary">
+              Open Telegram Channel <span>➜</span>
+            </button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER / DISCLAIMER -->
+    <footer>
+      <div>© <span id="year"></span> PROJECT_NAME. All rights reserved.</div>
+      <div>
+        <strong>Disclaimer:</strong>
+        All trading involves risk. Past performance does not guarantee future
+        results. This service does not provide personalized financial advice.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
