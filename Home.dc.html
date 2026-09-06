@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:oklch(0.971 0.005 245);color:oklch(0.235 0.018 252);font-family:"IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:oklch(0.505 0.155 252);text-decoration:none}
+  a:hover{color:oklch(0.40 0.17 252);text-decoration:underline}
+</style>
+</helmet>
+
+<div style="min-height:100vh">
+
+  <header style="position:sticky;top:0;z-index:20;background:oklch(0.971 0.005 245 / 0.92);backdrop-filter:blur(8px);border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="Home.dc.html" style="display:flex;align-items:baseline;gap:9px;color:oklch(0.235 0.018 252);text-decoration:none">
+        <span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;letter-spacing:-0.01em">Meridian Research</span>
+        <span style="font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:oklch(0.525 0.013 252)">ES</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:2px">
+        <a href="Research.dc.html" style="padding:7px 12px;font-size:13.5px;font-weight:500;color:oklch(0.235 0.018 252);text-decoration:none">Research</a>
+        <a href="Evidence.dc.html" style="padding:7px 12px;font-size:13.5px;font-weight:500;color:oklch(0.235 0.018 252);text-decoration:none">Evidence</a>
+        <a href="Services.dc.html" style="padding:7px 12px;font-size:13.5px;font-weight:500;color:oklch(0.235 0.018 252);text-decoration:none">Services</a>
+        <a href="Services.dc.html" style="margin-left:10px;padding:8px 15px;font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.09em;text-transform:uppercase;background:oklch(0.505 0.155 252);color:oklch(0.99 0.002 245);border-radius:2px;text-decoration:none;white-space:nowrap" style-hover="background:oklch(0.42 0.165 252)">Free signals</a>
+      </nav>
+    </div>
+  </header>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)">
+      <div style="padding:74px 44px 74px 0;border-right:1px solid oklch(0.885 0.008 248)">
+        <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.505 0.155 252);margin-bottom:26px">Systematic long alpha &nbsp;/&nbsp; S&amp;P 500 futures</div>
+        <h1 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(34px,4.3vw,58px);line-height:1.02;letter-spacing:-0.028em;text-wrap:balance">A trading model, and the research it had to survive first.</h1>
+        <p style="margin:26px 0 0;font-size:16.5px;line-height:1.6;max-width:52ch;color:oklch(0.34 0.016 252);text-wrap:pretty">Meridian is one model on one market. It decides, every fifteen minutes, whether to hold a long position in S&amp;P 500 futures or to hold nothing at all. It never sells short. Everything on this site — the pipeline, the numbers, the objections — comes out of the research repository that produced it.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:34px">
+          <a href="Services.dc.html" style="padding:13px 22px;background:oklch(0.505 0.155 252);color:oklch(0.99 0.002 245);font-size:14px;font-weight:600;border-radius:2px;text-decoration:none;white-space:nowrap" style-hover="background:oklch(0.42 0.165 252)">Get the free signals</a>
+          <a href="Research.dc.html" style="padding:13px 22px;border:1px solid oklch(0.235 0.018 252);color:oklch(0.235 0.018 252);font-size:14px;font-weight:600;border-radius:2px;text-decoration:none;white-space:nowrap" style-hover="background:oklch(0.235 0.018 252);color:oklch(0.99 0.002 245)">Walk the pipeline</a>
+        </div>
+        <p style="margin:22px 0 0;font-family:'Roboto Mono',monospace;font-size:11px;line-height:1.7;color:oklch(0.525 0.013 252)">Free on Telegram and Discord. No account required.</p>
+      </div>
+
+      <sc-if value="{{ showNumbers }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:74px 0 74px 44px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="display:inline-block;padding:5px 9px;border:1px solid oklch(0.505 0.155 252);color:oklch(0.505 0.155 252);font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;border-radius:2px;white-space:nowrap">Development stage &nbsp;·&nbsp; not a forecast</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:22px 0 0 -18px;background:oklch(0.885 0.008 248)">
+              <sc-for list="{{ heroStats }}" as="s" hint-placeholder-count="4">
+                <div style="background:oklch(0.971 0.005 245);padding:16px 18px">
+                  <div style="font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.11em;text-transform:uppercase;color:oklch(0.525 0.013 252)">{{ s.label }}</div>
+                  <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:30px;letter-spacing:-0.02em;margin-top:4px;font-variant-numeric:tabular-nums">{{ s.value }}</div>
+                  <div style="font-size:11.5px;color:oklch(0.525 0.013 252);margin-top:2px">{{ s.note }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <p style="margin:24px 0 0;font-size:12px;line-height:1.6;color:oklch(0.525 0.013 252)">Replay of the development window, {{ windowLabel }}, priced through the account layer at $100,000 opening capital. Development results influenced selection. They are evidence about the process, not a return you should expect.</p>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:64px 24px">
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.525 0.013 252);margin-bottom:30px">01 &nbsp;/&nbsp; In plain terms</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:oklch(0.885 0.008 248);border-top:1px solid oklch(0.885 0.008 248);border-bottom:1px solid oklch(0.885 0.008 248)">
+        <sc-for list="{{ plain }}" as="p" hint-placeholder-count="3">
+          <div style="background:oklch(0.971 0.005 245);padding:28px 26px 30px 0">
+            <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-0.015em">{{ p.head }}</h3>
+            <p style="margin:11px 0 0;font-size:14.5px;line-height:1.62;color:oklch(0.34 0.016 252);text-wrap:pretty">{{ p.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showNumbers }}" hint-placeholder-val="{{ true }}">
+    <section style="background:oklch(0.215 0.020 252);color:oklch(0.94 0.004 245)">
+      <div style="max-width:1180px;margin:0 auto;padding:66px 24px">
+        <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:34px">
+          <div>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.72 0.05 252)">02 &nbsp;/&nbsp; The comparison that matters</div>
+            <h2 style="margin:14px 0 0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(24px,2.6vw,33px);letter-spacing:-0.022em;max-width:26ch;line-height:1.1">The model against simply staying long.</h2>
+          </div>
+          <p style="margin:0;max-width:46ch;font-size:14px;line-height:1.62;color:oklch(0.78 0.012 252)">A rising market makes almost any long strategy look competent. So the same decision stream is priced beside a passive always-long book over the identical window, with identical sizing, contract terms and financing.</p>
+        </div>
+
+        <div style="width:100%;overflow:hidden;border:1px solid oklch(0.34 0.02 252);background:oklch(0.245 0.020 252);padding:18px 18px 10px">
+          <svg viewBox="0 0 960 260" preserveAspectRatio="none" style="display:block;width:100%;height:min(38vw,260px)">
+            <path d="{{ gridPath }}" stroke="oklch(0.33 0.02 252)" stroke-width="1" fill="none"></path>
+            <path d="{{ passivePath }}" stroke="oklch(0.60 0.012 252)" stroke-width="1.6" fill="none"></path>
+            <path d="{{ devPath }}" stroke="oklch(0.72 0.16 252)" stroke-width="2" fill="none"></path>
+          </svg>
+          <div style="display:flex;flex-wrap:wrap;gap:20px;padding:12px 0 6px;font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.75 0.012 252)">
+            <span style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:2px;background:oklch(0.72 0.16 252)"></span>Model</span>
+            <span style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:2px;background:oklch(0.60 0.012 252)"></span>Passive long</span>
+            <span style="margin-left:auto">Log equity &nbsp;·&nbsp; {{ windowLabel }}</span>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin-top:1px;border-top:1px solid oklch(0.34 0.02 252);border-left:1px solid oklch(0.34 0.02 252)">
+          <sc-for list="{{ compare }}" as="c" hint-placeholder-count="5">
+            <div style="background:oklch(0.215 0.020 252);padding:18px 16px;border-right:1px solid oklch(0.34 0.02 252);border-bottom:1px solid oklch(0.34 0.02 252)">
+              <div style="font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.11em;text-transform:uppercase;color:oklch(0.70 0.012 252)">{{ c.label }}</div>
+              <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:24px;letter-spacing:-0.02em;margin-top:7px;font-variant-numeric:tabular-nums;color:oklch(0.96 0.004 245)">{{ c.model }}</div>
+              <div style="font-family:'Roboto Mono',monospace;font-size:11.5px;margin-top:3px;color:oklch(0.68 0.012 252);font-variant-numeric:tabular-nums">passive {{ c.passive }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <p style="margin:26px 0 0;font-size:13px;line-height:1.65;color:oklch(0.76 0.012 252);max-width:78ch">In 2022 the passive book lost {{ passive2022 }} while the model book made {{ model2022 }}. That divergence is the point of the objective: exposure states are flat or long, so the model can decline to participate. It is not evidence of alpha on its own — see <a href="Evidence.dc.html" style="color:oklch(0.80 0.11 252)">the full evidence page</a> for the stage each claim rests on.</p>
+      </div>
+    </section>
+  </sc-if>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:66px 24px">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px">
+        <div>
+          <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.525 0.013 252)">03 &nbsp;/&nbsp; The pipeline</div>
+          <h2 style="margin:14px 0 0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(24px,2.6vw,33px);letter-spacing:-0.022em;line-height:1.1;max-width:24ch">Eight stages, each with its own evidence.</h2>
+        </div>
+        <a href="Research.dc.html" style="font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.11em;text-transform:uppercase;border-bottom:1px solid oklch(0.505 0.155 252);padding-bottom:2px">Open the walkthrough &rarr;</a>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1px;background:oklch(0.885 0.008 248);border:1px solid oklch(0.885 0.008 248);margin-top:34px">
+        <sc-for list="{{ stages }}" as="st" hint-placeholder-count="8">
+          <a href="Research.dc.html" style="display:block;background:oklch(0.995 0.002 245);padding:20px 20px 22px;text-decoration:none;color:oklch(0.235 0.018 252)" style-hover="background:oklch(0.955 0.012 250)">
+            <div style="display:flex;align-items:baseline;gap:9px">
+              <span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:oklch(0.505 0.155 252)">{{ st.n }}</span>
+              <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:16.5px;letter-spacing:-0.015em;white-space:nowrap">{{ st.k }}</span>
+            </div>
+            <p style="margin:9px 0 0;font-size:13.2px;line-height:1.55;color:oklch(0.42 0.014 252);text-wrap:pretty">{{ st.d }}</p>
+          </a>
+        </sc-for>
+        <a href="Research.dc.html" style="display:flex;flex-direction:column;justify-content:flex-end;gap:8px;background:oklch(0.955 0.012 250);padding:20px 20px 22px;text-decoration:none;color:oklch(0.235 0.018 252)" style-hover="background:oklch(0.925 0.02 250)">
+          <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:16.5px;letter-spacing:-0.015em;line-height:1.2">Each stage, with the evidence it produced</span>
+          <span style="font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.11em;text-transform:uppercase;color:oklch(0.505 0.155 252);white-space:nowrap">Open the walkthrough &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:66px 24px">
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.525 0.013 252)">04 &nbsp;/&nbsp; Objections</div>
+      <h2 style="margin:14px 0 0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(24px,2.6vw,33px);letter-spacing:-0.022em;line-height:1.1;max-width:30ch">If you are sceptical, you are reading it correctly.</h2>
+      <p style="margin:16px 0 0;font-size:15px;line-height:1.62;color:oklch(0.42 0.014 252);max-width:62ch">These are the four questions a quantitative practitioner asks in the first two minutes. Answers are stated against the repository's own contract, including where the evidence stops.</p>
+
+      <div style="margin-top:34px;border-top:1px solid oklch(0.885 0.008 248)">
+        <sc-for list="{{ objections }}" as="o" hint-placeholder-count="4">
+          <div style="border-bottom:1px solid oklch(0.885 0.008 248)">
+            <button onClick="{{ o.toggle }}" style="width:100%;display:flex;align-items:flex-start;gap:18px;padding:20px 0;background:none;border:none;text-align:left;cursor:pointer;font-family:inherit;color:oklch(0.235 0.018 252)">
+              <span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:oklch(0.505 0.155 252);padding-top:6px">{{ o.n }}</span>
+              <span style="flex:1;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(17px,1.9vw,22px);letter-spacing:-0.018em;line-height:1.3">{{ o.q }}</span>
+              <span style="font-family:'Roboto Mono',monospace;font-size:16px;color:oklch(0.525 0.013 252);padding-top:2px">{{ o.mark }}</span>
+            </button>
+            <sc-if value="{{ o.open }}" hint-placeholder-val="{{ true }}">
+              <div style="padding:0 0 26px 46px;max-width:76ch">
+                <p style="margin:0;font-size:15px;line-height:1.68;color:oklch(0.30 0.016 252);text-wrap:pretty">{{ o.a }}</p>
+                <p style="margin:14px 0 0;font-family:'Roboto Mono',monospace;font-size:11px;line-height:1.7;color:oklch(0.525 0.013 252);letter-spacing:0.01em">Source: {{ o.src }}</p>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:66px 24px">
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.525 0.013 252)">05 &nbsp;/&nbsp; Three ways in</div>
+      <h2 style="margin:14px 0 0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(24px,2.6vw,33px);letter-spacing:-0.022em;line-height:1.1;max-width:24ch">Start free. Move closer if it earns it.</h2>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:oklch(0.885 0.008 248);border:1px solid oklch(0.885 0.008 248);margin-top:34px">
+        <sc-for list="{{ services }}" as="sv" hint-placeholder-count="3">
+          <div style="background:oklch(0.995 0.002 245);padding:26px 24px 28px;display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+              <span style="font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:oklch(0.525 0.013 252)">{{ sv.tier }}</span>
+              <span style="font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;padding:4px 8px;border-radius:2px;background:oklch(0.93 0.01 250);color:oklch(0.42 0.014 252)">{{ sv.badge }}</span>
+            </div>
+            <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:21px;letter-spacing:-0.018em;line-height:1.15">{{ sv.name }}</h3>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:oklch(0.40 0.014 252);flex:1;text-wrap:pretty">{{ sv.body }}</p>
+            <a href="Services.dc.html" style="font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.11em;text-transform:uppercase;border-bottom:1px solid oklch(0.505 0.155 252);padding-bottom:2px;align-self:flex-start;white-space:nowrap">{{ sv.cta }} &rarr;</a>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:oklch(0.215 0.020 252);color:oklch(0.80 0.012 252)">
+    <div style="max-width:1180px;margin:0 auto;padding:52px 24px 60px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:32px;align-items:start">
+        <div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:oklch(0.96 0.004 245);letter-spacing:-0.01em">Meridian Research</div>
+          <p style="margin:10px 0 0;font-family:'Roboto Mono',monospace;font-size:10.5px;line-height:1.8;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.66 0.012 252)">Run {{ runId }}<br>Bundle {{ fingerprint }}<br>Generated {{ generated }}</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <a href="Research.dc.html" style="color:oklch(0.86 0.01 252);font-size:13.5px">Research method</a>
+          <a href="Evidence.dc.html" style="color:oklch(0.86 0.01 252);font-size:13.5px">Evidence and numbers</a>
+          <a href="Services.dc.html" style="color:oklch(0.86 0.01 252);font-size:13.5px">Services</a>
+        </div>
+        <p style="margin:0;grid-column:span 2;min-width:0;font-size:12px;line-height:1.7;color:oklch(0.70 0.012 252)">Trading futures involves substantial risk of loss and is not suitable for every investor. Figures on this site are replays of historical decision streams at the development research stage; they influenced model selection and are not a forecast, an offer, or a basis for position sizing. Past performance does not indicate future results. Nothing here is investment advice.</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showNumbers&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Compliance&quot;},&quot;objectionsOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  state = { data: null, open: 0 };
+
+  componentDidMount() {
+    fetch("data/model.json")
+      .then((r) => r.json())
+      .then((data) => this.setState({ data }))
+      .catch(() => this.setState({ data: null }));
+  }
+
+  static money(v) {
+    const sign = v < 0 ? "\u2212" : "";
+    return sign + "$" + Math.round(Math.abs(v)).toLocaleString("en-US");
+  }
+
+  static pct(v, dp) {
+    return (v * 100).toFixed(dp === undefined ? 1 : dp) + "%";
+  }
+
+  /** Log-scale polyline over a fixed 960x260 viewBox. */
+  static path(values, lo, hi, w, h) {
+    const n = values.length;
+    if (!n) return "";
+    let d = "";
+    for (let i = 0; i < n; i++) {
+      const x = (i / (n - 1)) * w;
+      const y = h - ((Math.log(values[i]) - lo) / (hi - lo)) * h;
+      d += (i ? "L" : "M") + x.toFixed(1) + " " + y.toFixed(1);
+    }
+    return d;
+  }
+
+  renderVals() {
+    const d = this.state.data;
+    const M = Component;
+    const dev = d && d.books.development.summary;
+    const pas = d && d.books.passive.summary;
+
+    let devPath = "";
+    let passivePath = "";
+    let gridPath = "";
+    if (d) {
+      const all = d.curve.dev_equity.concat(d.curve.passive_equity);
+      const lo = Math.log(Math.min.apply(null, all) * 0.97);
+      const hi = Math.log(Math.max.apply(null, all) * 1.03);
+      devPath = M.path(d.curve.dev_equity, lo, hi, 960, 260);
+      passivePath = M.path(d.curve.passive_equity, lo, hi, 960, 260);
+      for (let i = 0; i <= 4; i++) {
+        const y = ((i / 4) * 260).toFixed(1);
+        gridPath += "M0 " + y + "L960 " + y;
+      }
+    }
+
+    const annual = (book, year) => {
+      if (!d) return "\u2014";
+      const row = d.books[book].annual.find((a) => a.year === year);
+      return row ? M.money(row.pnl) : "\u2014";
+    };
+
+    const objectionData = [
+      {
+        n: "01",
+        q: "\u201cIt is just long beta in a bull market.\u201d",
+        a: d
+          ? "The repository's modelling contract treats this as the primary thing to disprove, so every account replay is priced beside an equivalent passive always-long book on the same window with identical sizing, contract terms and financing. Over " +
+            d.meta.window.start +
+            " to " +
+            d.meta.window.end +
+            " the passive book returns a Sharpe of " +
+            pas.sharpe.toFixed(2) +
+            " with a " +
+            M.pct(pas.max_drawdown_pct) +
+            " maximum drawdown; the model book returns " +
+            dev.sharpe.toFixed(2) +
+            " with " +
+            M.pct(dev.max_drawdown_pct) +
+            ". The contract also forbids the opposite error: persistent long exposure is not penalised merely because the market rose, because that would manufacture the appearance of alpha by suppressing exposure. Profitability during a rising market does not establish alpha on its own, and it is not presented as if it does."
+          : "Every account replay is priced beside an equivalent passive always-long book on the same window with identical sizing, contract terms and financing.",
+        src: "CONTRACT.md \u2014 \u201cModelling objective: long alpha versus long beta\u201d; performance_results/summary.json",
+      },
+      {
+        n: "02",
+        q: "\u201cThe backtest is overfit.\u201d",
+        a: "Research claims are separated into three stages that cannot be substituted for each other. Develop compares a change against the frozen incumbent using configured seeds and pre-registered gates \u2014 its history influenced selection, so it is explicitly not expected performance and not a sizing basis. Scorecard chooses configurations using only history before each forward year, then replays those years; a changed selection process requires a new study lineage before it may replace the planning estimate. Holdout is a single go/no-go on a frozen line, spent once, and it cannot be recycled for tuning. Every number published here is labelled with the stage that supports it. The figures on this site are development-stage.",
+        src: "CONTRACT.md \u2014 \u201cResearch evidence and promotion\u201d",
+      },
+      {
+        n: "03",
+        q: "\u201cWhy share it at all if it works?\u201d",
+        a: d
+          ? "Because the binding constraint is capital, not secrecy. The unit book holds one E-mini contract; the account layer scales that to a maximum of " +
+            d.scaling.max_units +
+            " units with mean leverage of " +
+            d.scaling.mean_leverage_in_market.toFixed(2) +
+            "\u00d7 while in the market. Free signals cost the strategy nothing and are how most people decide whether to keep reading. What is not shared is the fitted model, the selected feature subset, the policy band and the training configuration \u2014 the site describes the process, not the parameters."
+          : "Because the binding constraint is capital, not secrecy.",
+        src: "performance_results/summary.json \u2014 account scaling; CONTRACT.md \u2014 provider roles",
+      },
+      {
+        n: "04",
+        q: "\u201cHow do you know there is no lookahead?\u201d",
+        a: d
+          ? "Causal availability is enforced at every decision timestamp, and supervised future information is restricted to the declared label and outcome contract. Purge and embargo are applied wherever an outcome could cross a held-out boundary, and model selection is kept separate from untouched evaluation data. Features and labels read the continuous roll-adjusted path; execution never does \u2014 fills happen on the active outright's raw minute open, crossing one tick per side plus commission, with each roll booked as two fills at the calendar's roll prices. The replay is then reconciled against an independent decision-row accounting of the same stream: maximum equity-path error $0.00, trade-accounting error $0.00, net PnL agreeing to nine decimal places, against a $0.001 tolerance."
+          : "Causal availability is enforced at every decision timestamp.",
+        src: "CONTRACT.md \u2014 \u201cTemporal and modelling integrity\u201d; books/development/seed_0/reconciliation.json",
+      },
+    ];
+
+    return {
+      showNumbers: this.props.showNumbers !== false,
+      windowLabel: d ? d.meta.window.start + " \u2192 " + d.meta.window.end : "\u2014",
+      runId: "20260905T071000Z-spx500-seed-0",
+      fingerprint: d ? d.meta.config.fingerprint : "\u2014",
+      generated: d ? d.meta.generated_at.slice(0, 10) : "\u2014",
+
+      heroStats: d
+        ? [
+            { label: "Sharpe", value: dev.sharpe.toFixed(2), note: "passive " + pas.sharpe.toFixed(2) },
+            { label: "CAGR", value: M.pct(dev.cagr), note: "passive " + M.pct(pas.cagr) },
+            { label: "Max drawdown", value: M.pct(dev.max_drawdown_pct), note: "passive " + M.pct(pas.max_drawdown_pct) },
+            { label: "Completed trades", value: d.trades.count.toLocaleString("en-US"), note: d.trades.per_year.toFixed(0) + " per year" },
+          ]
+        : [],
+
+      compare: d
+        ? [
+            { label: "Sharpe", model: dev.sharpe.toFixed(2), passive: pas.sharpe.toFixed(2) },
+            { label: "CAGR", model: M.pct(dev.cagr), passive: M.pct(pas.cagr) },
+            { label: "Annual volatility", model: M.pct(dev.annual_vol), passive: M.pct(pas.annual_vol) },
+            { label: "Max drawdown", model: M.pct(dev.max_drawdown_pct), passive: M.pct(pas.max_drawdown_pct) },
+            { label: "Final equity", model: M.money(dev.final_equity_usd), passive: M.money(pas.final_equity_usd) },
+          ]
+        : [],
+
+      passive2022: annual("passive", "2022"),
+      model2022: annual("development", "2022"),
+
+      devPath,
+      passivePath,
+      gridPath,
+
+      plain: [
+        {
+          head: "One market, one direction",
+          body: "The model trades S&P 500 futures and nothing else. It can be long or it can be flat. Short positions are not a state the model is allowed to produce \u2014 not in its output, not in its policy, not in the executable book.",
+        },
+        {
+          head: "A decision every fifteen minutes",
+          body: "At each quarter-hour the model scores the market from 56 registered inputs. A long opens when the score sits above its own recent 70th percentile and closes below the 20th; positions are capped at twelve hours and go flat before the cash close.",
+        },
+        {
+          head: "Costs before conclusions",
+          body: "The backtest holds one real contract, fills on the raw minute open, crosses one tick per side plus commission, and books every quarterly roll as two fills. Spread alone removed $168,816 from the development replay. Slippage assumptions are not permitted in the repository.",
+        },
+      ],
+
+      stages: [
+        { n: "01", k: "Data", d: "Minute E-mini tape, roll calendar, active-contract resolution, coverage and lineage audits." },
+        { n: "02", k: "Features", d: "56 registered features across nine families, each with a declared timeframe, price basis and inclusive bounds." },
+        { n: "03", k: "Target", d: "One declared label and outcome contract. No other future information reaches training." },
+        { n: "04", k: "Training", d: "Gradient-boosted trees with fixed seeds, reproducibility checks and recorded manifests." },
+        { n: "05", k: "Walk-forward", d: "Whole-calendar-month folds, minimum 24 months of training, purge and embargo at every boundary." },
+        { n: "06", k: "Policy", d: "Causal percentile hysteresis rather than a zero crossing, a hold cap, and a flat window before the close." },
+        { n: "07", k: "Backtest", d: "Unit book of one contract: raw minute-open fills, one tick per side plus commission, rolls booked as two fills." },
+        { n: "08", k: "Account", d: "Notional-fraction sizing, financing snapshots, and ledger reconciliation inside a $0.001 tolerance." },
+      ],
+
+      objections: objectionData.map((o, i) => ({
+        n: o.n,
+        q: o.q,
+        a: o.a,
+        src: o.src,
+        open: this.props.objectionsOpen === true || this.state.open === i,
+        mark: this.props.objectionsOpen === true || this.state.open === i ? "\u2212" : "+",
+        toggle: () => this.setState((s) => ({ open: s.open === i ? -1 : i })),
+      })),
+
+      services: [
+        {
+          tier: "Tier 01",
+          badge: "Free",
+          name: "Signals on Telegram and Discord",
+          body: "Every entry and exit the model produces, posted as it happens, with the score band and hold state attached. No account, no card, no minimum. It is the cheapest way to watch the system behave before you risk anything.",
+          cta: "Join a channel",
+        },
+        {
+          tier: "Tier 02",
+          badge: "Brokerage",
+          name: "Copy trading via Collective2",
+          body: "The strategy is published as a Collective2 system so a broker-linked account can mirror it without you running anything. Collective2 keeps its own independent record of fills and equity, which is a third-party check on the live stream.",
+          cta: "See the system",
+        },
+        {
+          tier: "Tier 03",
+          badge: "Direct",
+          name: "The automated bot, hosted",
+          body: "Subscription access to the execution bot on a hosted platform: your broker credentials, your sizing, the same policy the research produced. Configuration, position state and the decision log are visible to you.",
+          cta: "Request access",
+        },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

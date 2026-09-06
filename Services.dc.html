@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:oklch(0.971 0.005 245);color:oklch(0.235 0.018 252);font-family:"IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:oklch(0.505 0.155 252);text-decoration:none}
+  a:hover{color:oklch(0.40 0.17 252);text-decoration:underline}
+</style>
+</helmet>
+
+<div style="min-height:100vh">
+
+  <header style="position:sticky;top:0;z-index:20;background:oklch(0.971 0.005 245 / 0.92);backdrop-filter:blur(8px);border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="Home.dc.html" style="display:flex;align-items:baseline;gap:9px;color:oklch(0.235 0.018 252);text-decoration:none">
+        <span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;letter-spacing:-0.01em">Meridian Research</span>
+        <span style="font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:oklch(0.525 0.013 252)">ES</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:2px">
+        <a href="Research.dc.html" style="padding:7px 12px;font-size:13.5px;font-weight:500;color:oklch(0.235 0.018 252);text-decoration:none">Research</a>
+        <a href="Evidence.dc.html" style="padding:7px 12px;font-size:13.5px;font-weight:500;color:oklch(0.235 0.018 252);text-decoration:none">Evidence</a>
+        <a href="Services.dc.html" style="padding:7px 12px;font-size:13.5px;font-weight:600;color:oklch(0.505 0.155 252);text-decoration:none">Services</a>
+        <a href="#signals" style="margin-left:10px;padding:8px 15px;font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.09em;text-transform:uppercase;background:oklch(0.505 0.155 252);color:oklch(0.99 0.002 245);border-radius:2px;text-decoration:none;white-space:nowrap" style-hover="background:oklch(0.42 0.165 252)">Free signals</a>
+      </nav>
+    </div>
+  </header>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:58px 24px 48px">
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.505 0.155 252)">Services</div>
+      <h1 style="margin:22px 0 0;font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.04;letter-spacing:-0.026em;max-width:26ch;text-wrap:balance">Three levels of access to the same decision stream.</h1>
+      <p style="margin:22px 0 0;font-size:16px;line-height:1.62;max-width:66ch;color:oklch(0.34 0.016 252);text-wrap:pretty">There is one model. What differs between these is who executes and who carries the operational work. Start at the free tier: it costs nothing, it commits nothing, and it is the only honest way to form your own view of how the system behaves week to week.</p>
+    </div>
+  </section>
+
+  <section id="signals" style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:0 24px">
+      <div style="display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)">
+        <div style="padding:56px 44px 60px 0;border-right:1px solid oklch(0.885 0.008 248)">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:oklch(0.525 0.013 252)">Tier 01</span>
+            <span style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:4px 9px;border-radius:2px;background:oklch(0.505 0.155 252);color:oklch(0.99 0.002 245)">Free</span>
+          </div>
+          <h2 style="margin:18px 0 0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(24px,2.8vw,36px);letter-spacing:-0.024em;line-height:1.06;max-width:22ch">Live signals on Telegram and Discord</h2>
+          <p style="margin:18px 0 0;font-size:15.5px;line-height:1.6;max-width:56ch;color:oklch(0.34 0.016 252);text-wrap:pretty">Every entry and exit the model produces is posted as it happens. No account, no payment details, no minimum size. You are watching the decision stream, not a curated selection of it &mdash; losing trades appear in the channel exactly like winning ones.</p>
+
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:30px">
+            <a href="#" style="padding:13px 22px;background:oklch(0.505 0.155 252);color:oklch(0.99 0.002 245);font-size:14px;font-weight:600;border-radius:2px;text-decoration:none;white-space:nowrap" style-hover="background:oklch(0.42 0.165 252)">Join on Telegram</a>
+            <a href="#" style="padding:13px 22px;border:1px solid oklch(0.235 0.018 252);color:oklch(0.235 0.018 252);font-size:14px;font-weight:600;border-radius:2px;text-decoration:none;white-space:nowrap" style-hover="background:oklch(0.235 0.018 252);color:oklch(0.99 0.002 245)">Join on Discord</a>
+          </div>
+          <p style="margin:16px 0 0;font-family:'Roboto Mono',monospace;font-size:10.5px;line-height:1.7;color:oklch(0.525 0.013 252)">Channel links pending &mdash; supply the invite URLs and they drop straight in.</p>
+        </div>
+
+        <div style="padding:56px 0 60px 40px">
+          <div style="font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:oklch(0.525 0.013 252)">What a post contains</div>
+          <div style="margin-top:16px;border:1px solid oklch(0.885 0.008 248);background:oklch(0.215 0.020 252);padding:18px 18px 20px;font-family:'Roboto Mono',monospace;font-size:12px;line-height:1.9;color:oklch(0.88 0.01 252)">
+            <div style="color:oklch(0.72 0.16 252)">MERIDIAN &middot; ES</div>
+            <div style="color:oklch(0.80 0.14 150)">OPEN LONG</div>
+            <div style="height:14px"></div>
+            <sc-for list="{{ samplePost }}" as="line" hint-placeholder-count="4">
+              <div style="white-space:pre-wrap">{{ line }}</div>
+            </sc-for>
+            <div style="color:oklch(0.70 0.012 252);margin-top:10px">stage     live &middot; development-selected policy</div>
+          </div>
+          <p style="margin:14px 0 0;font-size:12.5px;line-height:1.65;color:oklch(0.48 0.014 252);text-wrap:pretty">Illustrative format. The score's position inside its own causal distribution is shown rather than the raw score, because the raw level near zero carries seed noise and is not meaningful on its own.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:56px 24px">
+      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(22px,2.5vw,31px);letter-spacing:-0.022em;line-height:1.1">Side by side</h2>
+      <p style="margin:12px 0 0;font-size:14.5px;line-height:1.6;max-width:70ch;color:oklch(0.42 0.014 252);text-wrap:pretty">The trade-off across the three tiers is control against effort. Nothing here changes the model, the policy, or the market it trades.</p>
+
+      <div style="margin-top:28px;width:100%;overflow-x:auto">
+        <table style="width:100%;min-width:700px;border-collapse:collapse">
+          <thead>
+            <tr>
+              <th style="text-align:left;padding:12px 10px 12px 0;border-bottom:1px solid oklch(0.235 0.018 252);font-family:'Roboto Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.42 0.014 252);font-weight:500;width:24%"></th>
+              <sc-for list="{{ tierHeads }}" as="t" hint-placeholder-count="3">
+                <th style="text-align:left;padding:12px 10px;border-bottom:1px solid oklch(0.235 0.018 252);vertical-align:bottom">
+                  <span style="display:block;font-family:'Roboto Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.525 0.013 252);font-weight:500">{{ t.tier }}</span>
+                  <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:15.5px;letter-spacing:-0.012em;margin-top:5px;color:oklch(0.235 0.018 252)">{{ t.name }}</span>
+                </th>
+              </sc-for>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ matrix }}" as="row" hint-placeholder-count="7">
+              <tr>
+                <td style="padding:13px 10px 13px 0;border-bottom:1px solid oklch(0.905 0.008 248);font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:oklch(0.48 0.014 252);vertical-align:top">{{ row.k }}</td>
+                <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="3">
+                  <td style="padding:13px 10px;border-bottom:1px solid oklch(0.905 0.008 248);font-size:13.5px;line-height:1.5;color:oklch(0.28 0.016 252);vertical-align:top">{{ c }}</td>
+                </sc-for>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:56px 24px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1px;background:oklch(0.885 0.008 248);border:1px solid oklch(0.885 0.008 248)">
+        <sc-for list="{{ tiers }}" as="t" hint-placeholder-count="2">
+          <div style="background:oklch(0.995 0.002 245);padding:30px 28px 32px;display:flex;flex-direction:column;gap:16px">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:oklch(0.525 0.013 252)">{{ t.tier }}</span>
+              <span style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:4px 9px;border-radius:2px;background:oklch(0.93 0.01 250);color:oklch(0.42 0.014 252)">{{ t.badge }}</span>
+            </div>
+            <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:24px;letter-spacing:-0.02em;line-height:1.1">{{ t.name }}</h3>
+            <p style="margin:0;font-size:14.5px;line-height:1.6;color:oklch(0.34 0.016 252);text-wrap:pretty">{{ t.body }}</p>
+            <div style="border-top:1px solid oklch(0.905 0.008 248)">
+              <sc-for list="{{ t.points }}" as="p" hint-placeholder-count="4">
+                <div style="display:flex;gap:12px;padding:11px 0;border-bottom:1px solid oklch(0.905 0.008 248)">
+                  <span style="font-family:'Roboto Mono',monospace;font-size:10px;color:oklch(0.505 0.155 252);padding-top:3px">&mdash;</span>
+                  <span style="font-size:13.5px;line-height:1.55;color:oklch(0.32 0.016 252)">{{ p }}</span>
+                </div>
+              </sc-for>
+            </div>
+            <div style="margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px">
+              <a href="#" style="padding:12px 20px;background:oklch(0.235 0.018 252);color:oklch(0.99 0.002 245);font-size:13.5px;font-weight:600;border-radius:2px;text-decoration:none;white-space:nowrap" style-hover="background:oklch(0.505 0.155 252)">{{ t.cta }}</a>
+              <span style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.525 0.013 252)">{{ t.price }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:oklch(0.215 0.020 252);color:oklch(0.94 0.004 245)">
+    <div style="max-width:1180px;margin:0 auto;padding:56px 24px 62px">
+      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(22px,2.6vw,32px);letter-spacing:-0.022em;line-height:1.1;max-width:26ch">Before you follow anything, read this part.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-top:30px">
+        <sc-for list="{{ warnings }}" as="w" hint-placeholder-count="3">
+          <div>
+            <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:18px;letter-spacing:-0.015em;color:oklch(0.97 0.004 245)">{{ w.h }}</h3>
+            <p style="margin:10px 0 0;font-size:14px;line-height:1.62;color:oklch(0.82 0.012 252);text-wrap:pretty">{{ w.b }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:56px 24px 62px">
+      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(22px,2.5vw,31px);letter-spacing:-0.022em;line-height:1.1">Questions</h2>
+      <div style="margin-top:26px;border-top:1px solid oklch(0.885 0.008 248)">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="8">
+          <div style="border-bottom:1px solid oklch(0.885 0.008 248)">
+            <button onClick="{{ f.toggle }}" style="width:100%;display:flex;align-items:flex-start;gap:16px;padding:17px 0;background:none;border:none;text-align:left;cursor:pointer;font-family:inherit;color:oklch(0.235 0.018 252)">
+              <span style="flex:1;font-family:'Archivo',sans-serif;font-weight:600;font-size:16.5px;letter-spacing:-0.014em;line-height:1.35">{{ f.q }}</span>
+              <span style="font-family:'Roboto Mono',monospace;font-size:15px;color:oklch(0.525 0.013 252)">{{ f.mark }}</span>
+            </button>
+            <sc-if value="{{ f.open }}" hint-placeholder-val="{{ true }}">
+              <p style="margin:0;padding:0 0 22px;max-width:78ch;font-size:14.5px;line-height:1.66;color:oklch(0.32 0.016 252);text-wrap:pretty">{{ f.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:oklch(0.215 0.020 252);color:oklch(0.80 0.012 252)">
+    <div style="max-width:1180px;margin:0 auto;padding:52px 24px 60px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:32px;align-items:start">
+      <div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:oklch(0.96 0.004 245);letter-spacing:-0.01em">Meridian Research</div>
+        <p style="margin:10px 0 0;font-family:'Roboto Mono',monospace;font-size:10.5px;line-height:1.8;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.66 0.012 252)">Run 20260905T071000Z-spx500-seed-0<br>Bundle 7079e1ffad40</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="Home.dc.html" style="color:oklch(0.86 0.01 252);font-size:13.5px">Overview</a>
+        <a href="Research.dc.html" style="color:oklch(0.86 0.01 252);font-size:13.5px">Research method</a>
+        <a href="Evidence.dc.html" style="color:oklch(0.86 0.01 252);font-size:13.5px">Evidence and numbers</a>
+      </div>
+      <p style="margin:0;grid-column:span 2;min-width:0;font-size:12px;line-height:1.7;color:oklch(0.70 0.012 252)">Trading futures involves substantial risk of loss and is not suitable for every investor. Figures on this site are replays of historical decision streams at the development research stage; they influenced model selection and are not a forecast, an offer, or a basis for position sizing. Past performance does not indicate future results. Nothing here is investment advice, and no service described here manages money on your behalf.</p>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showBotTier&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Offering&quot;},&quot;faqOpenAll&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  state = { faq: 0 };
+
+  renderVals() {
+    const showBot = this.props.showBotTier !== false;
+    const openAll = this.props.faqOpenAll === true;
+    const faqData = [
+      {
+        q: "Do I need to understand machine learning to use the signals?",
+        a: "No. A signal tells you what the book did and when. Reading the research pages will tell you why the system is built the way it is, but nothing in the free tier requires it. What does require attention is position size and risk, which is your decision and not something a signal can make for you.",
+      },
+      {
+        q: "What is actually in a signal?",
+        a: "The action (open long, close long), the timestamp, the instrument, the score's position inside its own causal distribution relative to the entry and exit cutoffs, and the current hold state including how much of the twelve-hour cap has been used. Raw model scores are not published, because their level near zero is seed noise rather than signal.",
+      },
+      {
+        q: "How many signals should I expect?",
+        a: "The development replay completed 5,464 trades over 3,584 trading days \u2014 about 474 a year, or roughly two round trips per trading day on average. That average hides long quiet stretches: the policy holds flat whenever the score sits between the cutoffs, and goes flat before the cash close every day.",
+      },
+      {
+        q: "Can I lose money following this?",
+        a: "Yes. The development replay had a losing year in 2018 and a 16.1% peak-to-trough drawdown. The average losing trade is larger than the average winning trade \u2014 the edge comes from winning more often, not from winning bigger \u2014 which means a short run of losses is entirely normal and feels considerably worse than the summary statistics suggest.",
+      },
+      {
+        q: "What is the difference between the three tiers?",
+        a: "The decision stream is the same in all three. In the free tier you read it and act manually. With Collective2 a broker-linked account mirrors the published system without you executing. With the hosted bot the execution runs against your own broker credentials and your own sizing, and you keep the configuration and decision log.",
+      },
+      {
+        q: "Do I need a futures account?",
+        a: "To trade the underlying yourself, yes \u2014 the model trades the CME E-mini S&P 500 contract, and the account layer sizes in ES or MES. Copy trading requires a broker Collective2 supports. You can follow the free channel with no account at all, and many people do that for months first.",
+      },
+      {
+        q: "Why is the model sometimes flat for days?",
+        a: "Because flat is a position. Entry requires the score to sit above its causal entry percentile; between the entry and exit cutoffs the current state is simply retained, and before the warmup count of valid scores is reached the book holds flat by rule. The strategy is only allowed to be flat or long, so declining to participate is the whole of its downside protection.",
+      },
+      {
+        q: "What do you not publish?",
+        a: "The fitted model, the selected feature subset, the searched policy grid and the training configuration. Published: the pipeline, the registry of candidate inputs, the account conventions, the reconciliation, and the evidence stage behind every figure. The distinction is between describing the process and handing over the parameters.",
+      },
+    ];
+
+    return {
+      samplePost: [
+        "time      2026-09-04 09:45 CT",
+        "score     p82  (entry \u2265 p70)",
+        "state     flat \u2192 long, 1 unit",
+        "hold cap  12h  \u00b7  flat by 15:00 CT",
+      ],
+
+      tierHeads: [
+        { tier: "Tier 01", name: "Signals" },
+        { tier: "Tier 02", name: "Collective2" },
+        { tier: "Tier 03", name: "Hosted bot" },
+      ].slice(0, showBot ? 3 : 2),
+
+      matrix: [
+        { k: "Cost", cells: ["Free", "Subscription \u2014 to be confirmed", "Subscription \u2014 to be confirmed"] },
+        { k: "You receive", cells: ["Entry and exit posts in real time", "A mirrored position in your own brokerage account", "Automated execution against your broker credentials"] },
+        { k: "Who executes", cells: ["You, manually", "Your broker, via Collective2", "The bot, on hosted infrastructure"] },
+        { k: "Account required", cells: ["None", "A broker Collective2 supports", "A supported broker plus API access"] },
+        { k: "Position sizing", cells: ["Entirely yours", "Scaled by your Collective2 settings", "Configured by you, enforced by the bot"] },
+        { k: "Timing sensitivity", cells: ["High \u2014 manual entry adds delay the backtest does not model", "Low \u2014 handled by the platform", "Low \u2014 handled by the bot"] },
+        { k: "Independent record", cells: ["None", "Collective2 keeps its own fill and equity record", "Your broker statement"] },
+        { k: "Best for", cells: ["Deciding whether any of this deserves your money", "Following without operating anything", "Practitioners who want configuration and logs"] },
+      ].map((r) => ({ k: r.k, cells: r.cells.slice(0, showBot ? 3 : 2) })),
+
+      tiers: [
+        {
+          tier: "Tier 02",
+          badge: "Brokerage",
+          name: "Copy trading via Collective2",
+          body: "The strategy is published as a Collective2 system so a broker-linked account can mirror it. The value of the platform is not convenience; it is that Collective2 maintains a record of fills and equity that Meridian does not control.",
+          points: [
+            "Independent third-party performance record from the day it starts",
+            "Your capital stays in your own brokerage account",
+            "Scaling handled by Collective2 settings, subject to their minimums",
+            "Platform fees are separate from anything charged here",
+          ],
+          cta: "See the system",
+          price: "Pricing to be confirmed",
+        },
+        {
+          tier: "Tier 03",
+          badge: "Direct",
+          name: "The automated bot, hosted",
+          body: "Subscription access to the execution bot on a hosted platform. It runs the same policy the research produced \u2014 causal percentile band, hold cap, session flat \u2014 against your broker credentials and your sizing configuration.",
+          points: [
+            "Your credentials, your sizing, your risk limits",
+            "Decision log visible to you, including flat decisions and capped holds",
+            "Position state and configuration exposed rather than hidden",
+            "No discretionary override layer between the model and the order",
+          ],
+          cta: "Request access",
+          price: "Pricing to be confirmed",
+        },
+      ].slice(0, showBot ? 2 : 1),
+
+      warnings: [
+        {
+          h: "The published evidence is development-stage",
+          b: "The configuration behind the numbers on this site was chosen with sight of the window it was measured on. That is a legitimate research result and an illegitimate forecast. Nothing here should be treated as expected performance or used as a basis for sizing a position.",
+        },
+        {
+          h: "Manual following is not the backtest",
+          b: "The backtest fills on the active contract's raw minute open with one tick per side plus commission. A person reading a channel post and entering by hand will not get that price. The gap between the two is your cost, not the model's, and it is largest on the fastest moves.",
+        },
+        {
+          h: "No service here manages your money",
+          b: "Signals are information. Copy trading is executed by your broker under your instruction through Collective2. The bot runs under your credentials with your limits. In all three cases the position, the risk and the loss are yours.",
+        },
+      ],
+
+      faqs: faqData.map((f, i) => ({
+        q: f.q,
+        a: f.a,
+        open: openAll || this.state.faq === i,
+        mark: openAll || this.state.faq === i ? "\u2212" : "+",
+        toggle: () => this.setState((s) => ({ faq: s.faq === i ? -1 : i })),
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>

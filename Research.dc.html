@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:oklch(0.971 0.005 245);color:oklch(0.235 0.018 252);font-family:"IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:oklch(0.505 0.155 252);text-decoration:none}
+  a:hover{color:oklch(0.40 0.17 252);text-decoration:underline}
+</style>
+</helmet>
+
+<div style="min-height:100vh">
+
+  <header style="position:sticky;top:0;z-index:20;background:oklch(0.971 0.005 245 / 0.92);backdrop-filter:blur(8px);border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="Home.dc.html" style="display:flex;align-items:baseline;gap:9px;color:oklch(0.235 0.018 252);text-decoration:none">
+        <span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;letter-spacing:-0.01em">Meridian Research</span>
+        <span style="font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:oklch(0.525 0.013 252)">ES</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:2px">
+        <a href="Research.dc.html" style="padding:7px 12px;font-size:13.5px;font-weight:600;color:oklch(0.505 0.155 252);text-decoration:none">Research</a>
+        <a href="Evidence.dc.html" style="padding:7px 12px;font-size:13.5px;font-weight:500;color:oklch(0.235 0.018 252);text-decoration:none">Evidence</a>
+        <a href="Services.dc.html" style="padding:7px 12px;font-size:13.5px;font-weight:500;color:oklch(0.235 0.018 252);text-decoration:none">Services</a>
+        <a href="Services.dc.html" style="margin-left:10px;padding:8px 15px;font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.09em;text-transform:uppercase;background:oklch(0.505 0.155 252);color:oklch(0.99 0.002 245);border-radius:2px;text-decoration:none;white-space:nowrap" style-hover="background:oklch(0.42 0.165 252)">Free signals</a>
+      </nav>
+    </div>
+  </header>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:58px 24px 52px">
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.505 0.155 252)">Research method</div>
+      <h1 style="margin:22px 0 0;font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.04;letter-spacing:-0.026em;max-width:26ch;text-wrap:balance">Eight stages between a price tape and a position.</h1>
+      <p style="margin:22px 0 0;font-size:16px;line-height:1.62;max-width:66ch;color:oklch(0.34 0.016 252);text-wrap:pretty">Each stage below is a domain in the research repository, with its own configuration, its own diagnostics, and its own definition of what counts as evidence. Select a stage to read what it decides, what it is constrained by, and which artefacts it leaves behind. The parameters shown are the ones the repository declares; the fitted model and selected subset are not published.</p>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:0 24px">
+      <div style="display:grid;grid-template-columns:minmax(210px,255px) minmax(0,1fr);gap:0;align-items:start">
+
+        <div style="border-right:1px solid oklch(0.885 0.008 248);padding:34px 0 44px">
+          <div style="font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:oklch(0.525 0.013 252);padding:0 20px 14px 0">Pipeline</div>
+          <sc-for list="{{ rail }}" as="r" hint-placeholder-count="8">
+            <button onClick="{{ r.select }}" style="{{ r.style }}">
+              <span style="font-family:'Roboto Mono',monospace;font-size:10.5px;color:oklch(0.505 0.155 252)">{{ r.n }}</span>
+              <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.012em">{{ r.k }}</span>
+            </button>
+          </sc-for>
+        </div>
+
+        <div style="padding:34px 0 56px 40px;min-width:0">
+          <div style="display:flex;align-items:baseline;gap:12px">
+            <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:oklch(0.505 0.155 252)">{{ stage.n }}</span>
+            <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,38px);letter-spacing:-0.024em;line-height:1.05">{{ stage.k }}</h2>
+          </div>
+          <p style="margin:16px 0 0;font-size:17px;line-height:1.55;max-width:62ch;color:oklch(0.30 0.016 252);text-wrap:pretty">{{ stage.plain }}</p>
+
+          <div style="margin-top:32px;border-top:1px solid oklch(0.885 0.008 248)">
+            <sc-for list="{{ stage.points }}" as="p" hint-placeholder-count="4">
+              <div style="display:grid;grid-template-columns:minmax(120px,180px) minmax(0,1fr);gap:24px;padding:16px 0;border-bottom:1px solid oklch(0.885 0.008 248)">
+                <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.09em;text-transform:uppercase;color:oklch(0.525 0.013 252);padding-top:2px">{{ p.k }}</div>
+                <div style="font-size:14.5px;line-height:1.6;color:oklch(0.30 0.016 252);text-wrap:pretty">{{ p.v }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:oklch(0.885 0.008 248);border:1px solid oklch(0.885 0.008 248)">
+            <sc-for list="{{ stage.figures }}" as="f" hint-placeholder-count="3">
+              <div style="background:oklch(0.995 0.002 245);padding:15px 16px 17px">
+                <div style="font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.525 0.013 252)">{{ f.k }}</div>
+                <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:21px;letter-spacing:-0.02em;margin-top:5px;font-variant-numeric:tabular-nums">{{ f.v }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="margin-top:26px;padding:18px 20px;background:oklch(0.945 0.012 250);border-left:2px solid oklch(0.505 0.155 252)">
+            <div style="font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.11em;text-transform:uppercase;color:oklch(0.505 0.155 252)">Constraint</div>
+            <p style="margin:9px 0 0;font-size:14.5px;line-height:1.6;color:oklch(0.28 0.016 252);max-width:70ch;text-wrap:pretty">{{ stage.constraint }}</p>
+          </div>
+
+          <p style="margin:22px 0 0;font-family:'Roboto Mono',monospace;font-size:11px;line-height:1.8;color:oklch(0.525 0.013 252)">Source: {{ stage.src }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:oklch(0.215 0.020 252);color:oklch(0.94 0.004 245)">
+    <div style="max-width:1180px;margin:0 auto;padding:66px 24px">
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.72 0.05 252)">The evidence ladder</div>
+      <h2 style="margin:16px 0 0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(24px,2.8vw,35px);letter-spacing:-0.024em;line-height:1.08;max-width:30ch">Three stages of claim. They are not interchangeable.</h2>
+      <p style="margin:18px 0 0;font-size:15px;line-height:1.62;max-width:70ch;color:oklch(0.80 0.012 252);text-wrap:pretty">The most common failure in published trading research is quoting a development result as though it were an out-of-sample one. The repository forbids the substitution outright, so every figure on this site carries the stage that supports it.</p>
+
+      <div style="margin-top:38px;display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1px;background:oklch(0.34 0.02 252);border:1px solid oklch(0.34 0.02 252)">
+        <sc-for list="{{ ladder }}" as="l" hint-placeholder-count="3">
+          <div style="background:oklch(0.235 0.020 252);padding:26px 24px 28px;display:flex;flex-direction:column;gap:13px">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+              <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:22px;letter-spacing:-0.02em;color:oklch(0.97 0.004 245)">{{ l.name }}</span>
+              <span style="font-family:'Roboto Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:4px 8px;border-radius:2px;background:oklch(0.32 0.025 252);color:oklch(0.84 0.06 252);white-space:nowrap">{{ l.tag }}</span>
+            </div>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:oklch(0.86 0.01 252);text-wrap:pretty">{{ l.what }}</p>
+            <p style="margin:0;font-size:13px;line-height:1.6;color:oklch(0.74 0.012 252);text-wrap:pretty"><strong style="color:oklch(0.88 0.01 252);font-weight:600">Limit.</strong> {{ l.limit }}</p>
+            <div style="margin-top:auto;padding-top:12px;border-top:1px solid oklch(0.32 0.02 252);font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.70 0.012 252)">{{ l.status }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <p style="margin:30px 0 0;font-size:14px;line-height:1.65;max-width:74ch;color:oklch(0.80 0.012 252);text-wrap:pretty">The declared evaluation window runs {{ evalWindow }} and has not been used. Selection lineage is recorded before any forward replay: features are chosen over the complete registry, policy is chosen on that subset using only the prefix ending before January 1 of the forward year, and a year traded under the composed incumbent band because no band was admitted is marked not blind.</p>
+    </div>
+  </section>
+
+  <sc-if value="{{ showRegistry }}" hint-placeholder-val="{{ true }}">
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:66px 24px">
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px">
+        <div>
+          <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.525 0.013 252)">The feature registry</div>
+          <h2 style="margin:16px 0 0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(24px,2.8vw,35px);letter-spacing:-0.024em;line-height:1.08;max-width:26ch">{{ featureCount }} registered inputs, in canonical column order.</h2>
+        </div>
+        <p style="margin:0;max-width:44ch;font-size:14px;line-height:1.6;color:oklch(0.42 0.014 252);text-wrap:pretty">Every feature declares the coarsest cadence it reads, which input basis dominates its meaning, and inclusive bounds over finite outputs. A row is only valid when all of its features are complete; non-finite values in a valid row are a hard failure, not a fill.</p>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:32px">
+        <sc-for list="{{ familyChips }}" as="c" hint-placeholder-count="10">
+          <button onClick="{{ c.select }}" style="{{ c.style }}">{{ c.label }} <span style="opacity:0.6">{{ c.count }}</span></button>
+        </sc-for>
+      </div>
+
+      <p style="margin:18px 0 0;font-size:14px;line-height:1.6;color:oklch(0.42 0.014 252);max-width:74ch;min-height:2.6em">{{ familyNote }}</p>
+
+      <div style="margin-top:16px;width:100%;overflow-x:auto">
+        <table style="width:100%;min-width:660px;border-collapse:collapse;font-variant-numeric:tabular-nums">
+          <thead>
+            <tr>
+              <th style="text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid oklch(0.235 0.018 252);font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.42 0.014 252);font-weight:500">Feature</th>
+              <th style="text-align:left;padding:10px 9px;border-bottom:1px solid oklch(0.235 0.018 252);font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.42 0.014 252);font-weight:500">Family</th>
+              <th style="text-align:left;padding:10px 9px;border-bottom:1px solid oklch(0.235 0.018 252);font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.42 0.014 252);font-weight:500">Reads</th>
+              <th style="text-align:left;padding:10px 9px;border-bottom:1px solid oklch(0.235 0.018 252);font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.42 0.014 252);font-weight:500">Basis</th>
+              <th style="text-align:right;padding:10px 9px;border-bottom:1px solid oklch(0.235 0.018 252);font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.42 0.014 252);font-weight:500">Bounds</th>
+              <th style="text-align:right;padding:10px 0 10px 12px;border-bottom:1px solid oklch(0.235 0.018 252);font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.42 0.014 252);font-weight:500">Sparse</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ featureRows }}" as="f" hint-placeholder-count="12">
+              <tr>
+                <td style="padding:9px 12px 9px 0;border-bottom:1px solid oklch(0.905 0.008 248);font-family:'Roboto Mono',monospace;font-size:12px;color:oklch(0.235 0.018 252)">{{ f.name }}</td>
+                <td style="padding:9px 9px;border-bottom:1px solid oklch(0.905 0.008 248);font-family:'Roboto Mono',monospace;font-size:11px;color:oklch(0.45 0.014 252)">{{ f.family }}</td>
+                <td style="padding:9px 9px;border-bottom:1px solid oklch(0.905 0.008 248);font-family:'Roboto Mono',monospace;font-size:11px;color:oklch(0.45 0.014 252)">{{ f.timeframe }}</td>
+                <td style="padding:9px 9px;border-bottom:1px solid oklch(0.905 0.008 248);font-family:'Roboto Mono',monospace;font-size:11px;color:oklch(0.45 0.014 252)">{{ f.basis }}</td>
+                <td style="padding:9px 9px;border-bottom:1px solid oklch(0.905 0.008 248);text-align:right;font-family:'Roboto Mono',monospace;font-size:11px;color:oklch(0.45 0.014 252);white-space:nowrap">{{ f.bounds }}</td>
+                <td style="padding:9px 0 9px 12px;border-bottom:1px solid oklch(0.905 0.008 248);text-align:right;font-family:'Roboto Mono',monospace;font-size:11px;color:oklch(0.45 0.014 252)">{{ f.sparse }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin:18px 0 0;font-family:'Roboto Mono',monospace;font-size:11px;line-height:1.8;color:oklch(0.525 0.013 252)">Source: src/research/features/registry.py &mdash; Registry.DEFINITIONS. Window lengths, ATR periods, EMA spans and horizons within these families are themselves search parameters, not fixed constants.</p>
+    </div>
+  </section>
+  </sc-if>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:60px 24px 66px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:36px;align-items:start">
+        <div>
+          <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(22px,2.4vw,30px);letter-spacing:-0.022em;line-height:1.1;max-width:22ch">What the research is not allowed to do.</h2>
+          <p style="margin:16px 0 0;font-size:14.5px;line-height:1.62;color:oklch(0.42 0.014 252);text-wrap:pretty">These are prohibitions written into the contract, not preferences. They exist because each one is a known route to a backtest that cannot be reproduced in a live account.</p>
+        </div>
+        <div style="border-top:1px solid oklch(0.885 0.008 248)">
+          <sc-for list="{{ prohibitions }}" as="p" hint-placeholder-count="5">
+            <div style="display:flex;gap:14px;padding:15px 0;border-bottom:1px solid oklch(0.885 0.008 248)">
+              <span style="font-family:'Roboto Mono',monospace;font-size:11px;color:oklch(0.505 0.155 252);padding-top:3px">&mdash;</span>
+              <p style="margin:0;font-size:14.5px;line-height:1.6;color:oklch(0.30 0.016 252);text-wrap:pretty">{{ p }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:oklch(0.215 0.020 252);color:oklch(0.80 0.012 252)">
+    <div style="max-width:1180px;margin:0 auto;padding:52px 24px 60px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:32px;align-items:start">
+      <div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:oklch(0.96 0.004 245);letter-spacing:-0.01em">Meridian Research</div>
+        <p style="margin:10px 0 0;font-family:'Roboto Mono',monospace;font-size:10.5px;line-height:1.8;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.66 0.012 252)">Run 20260905T071000Z-spx500-seed-0<br>Bundle 7079e1ffad40</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="Home.dc.html" style="color:oklch(0.86 0.01 252);font-size:13.5px">Overview</a>
+        <a href="Evidence.dc.html" style="color:oklch(0.86 0.01 252);font-size:13.5px">Evidence and numbers</a>
+        <a href="Services.dc.html" style="color:oklch(0.86 0.01 252);font-size:13.5px">Services</a>
+      </div>
+      <p style="margin:0;grid-column:span 2;min-width:0;font-size:12px;line-height:1.7;color:oklch(0.70 0.012 252)">Trading futures involves substantial risk of loss and is not suitable for every investor. Figures on this site are replays of historical decision streams at the development research stage; they influenced model selection and are not a forecast, an offer, or a basis for position sizing. Past performance does not indicate future results. Nothing here is investment advice.</p>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultStage&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:1,&quot;min&quot;:1,&quot;max&quot;:8,&quot;tsType&quot;:&quot;number&quot;,&quot;unit&quot;:&quot;stage&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;showRegistry&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  state = { stage: null, family: "all", features: null };
+
+  componentDidMount() {
+    fetch("data/features.json")
+      .then((r) => r.json())
+      .then((features) => this.setState({ features }))
+      .catch(() => this.setState({ features: null }));
+  }
+
+  static STAGES = [
+    {
+      n: "01",
+      k: "Data",
+      plain:
+        "Turn a raw futures tape into two separate price paths: one that features and labels may read, and one that execution must read. Confusing the two is the most common source of an unreproducible backtest.",
+      points: [
+        { k: "Provider", v: "Databento supplies the E-mini S&P 500 tape at minute resolution. The provider identifies the data source; it does not define which positions the strategy may take." },
+        { k: "Two paths", v: "Features and labels read the continuous roll-adjusted path. Execution never does \u2014 it reads the active outright contract's raw bars, so the fill price is a price that actually traded." },
+        { k: "Active contract", v: "The roll calendar and active-outright resolution decide which contract is live at any timestamp, and each quarterly roll is booked explicitly rather than smoothed away." },
+        { k: "Decision grid", v: "Decisions are taken on the quarter-hour grid. The minute path inside each decision bar remains available to intrabar features, but only for minutes that have already completed." },
+        { k: "Audits", v: "Coverage, ordering and lineage checks run at the owning boundary and fail loudly on missing or invalid required inputs. There are no defaulted lookups for required values and no silent fallbacks." },
+      ],
+      figures: [
+        { k: "Cadence", v: "15m" },
+        { k: "Tape", v: "1m" },
+        { k: "Instrument", v: "ES" },
+      ],
+      constraint:
+        "Validate external inputs at their owning boundary and semantic invariants at runtime. Fail on missing or invalid required inputs with precise context \u2014 no swallowed exceptions, no legacy-name probing, no best-effort correctness.",
+      src: "src/research/data/{catalog,loader,processor,active,rolls,coverage,audit}.py; CONTRACT.md \u2014 provider roles",
+    },
+    {
+      n: "02",
+      k: "Features",
+      plain:
+        "Compute the inputs the model is allowed to see. The registry is a contract: an ordered catalogue where every input declares its cadence, its basis and its bounds before it is ever computed.",
+      points: [
+        { k: "Registry", v: "56 features in nine dispatch families, held in canonical column order so that a fitted model, a stored manifest and a live prediction always agree on what column means what." },
+        { k: "Declared cadence", v: "Each specification names the coarsest cadence it reads \u2014 the minute path, the quarter-hour decision candle, the last completed 60-minute candle, or the last completed CME session. Nothing reads a bar that has not closed." },
+        { k: "Basis", v: "Adjusted for causal roll-adjusted prices, volume for observed contract volume, clock for values derived from the calendar alone with no price read at all." },
+        { k: "Bounds", v: "Bounds are inclusive over finite outputs and enforced at runtime. A row counts as valid only when every feature in it is complete; a non-finite value inside a valid row raises rather than imputes." },
+        { k: "Parameters", v: "Window lengths, ATR periods, RSI periods, EMA spans, realized-volatility windows, correlation and beta windows and lookback horizons are search parameters owned by the feature domain, not hard-coded constants." },
+        { k: "Performance", v: "Per-row and per-bar work runs through Numba kernels so the full history can be recomputed rather than cached and trusted." },
+      ],
+      figures: [
+        { k: "Features", v: "56" },
+        { k: "Families", v: "9" },
+        { k: "Bases", v: "3" },
+      ],
+      constraint:
+        "Search-space definitions stay in the domain that owns them. Feature parameters are selected over the complete declared registry before policy is selected on the resulting subset \u2014 never in the other order, and never jointly.",
+      src: "src/research/features/{registry,dto,matrix,params,optuna,kernels}.py",
+    },
+    {
+      n: "03",
+      k: "Target",
+      plain:
+        "Define exactly what the model is being asked to predict, and close every other route by which the future could reach it.",
+      points: [
+        { k: "One contract", v: "Supervised future information is restricted to the declared label and outcome contract. Anything else a future bar knows is out of bounds by construction, not by convention." },
+        { k: "Alignment", v: "The target has to reward the intended behaviour rather than a proxy that can succeed without alpha. That question is asked explicitly of the chain: objective, target, features, training objective, evaluation metric, policy, optimisation objective, diagnostics." },
+        { k: "Objective", v: "The intended behaviour is genuine predictive long alpha beyond passive market exposure \u2014 timing and selection, not market direction. The admissible exposure states are flat and long only." },
+        { k: "Diagnostics", v: "The target domain writes its own evidence into its run subdirectory, capturing expected against observed behaviour with the timestamps, boundaries and counts needed to trace the transformation without rerunning the pipeline." },
+      ],
+      figures: [
+        { k: "States", v: "flat / long" },
+        { k: "Short exposure", v: "none" },
+        { k: "Labels", v: "1" },
+      ],
+      constraint:
+        "Opposing positions must not appear as model outputs, policy states, or executable exposure. A break in objective alignment matters even when the backtest metrics look strong.",
+      src: "src/research/target/{builder,config,dto,diagnostics}.py; CONTRACT.md \u2014 modelling objective",
+    },
+    {
+      n: "04",
+      k: "Training",
+      plain:
+        "Fit the scoring function. The output is deliberately treated as an ordinal ranker rather than a calibrated forecast, which is why the policy stage exists at all.",
+      points: [
+        { k: "Model", v: "Gradient-boosted trees, with a linear fit retained as a reference line so that a complicated model has to beat a simple one on the same folds before it is preferred." },
+        { k: "Search", v: "Hyperparameters are searched by an Optuna study with a persisted identity. A run resumes only against a matching study identity; when the selection problem changes \u2014 registry, data, model line, objective, policy grid, target, fold geometry, contract terms or years \u2014 it gets a new label rather than reusing the old study." },
+        { k: "Reproducibility", v: "Seeds are configured and fixed, reproducibility is checked rather than assumed, and each fit writes a manifest recording the inputs it was built from." },
+        { k: "Composition", v: "Entry points compose a frozen incumbent, a candidate that changes only the layers under evaluation, or a pool that runs the incumbent over the complete feature registry. Unchanged candidate layers stay equal to their promoted values." },
+        { k: "Score meaning", v: "The fitted score's level near zero is seed noise, so it is never used as a raw signal. Only its position within its own causal distribution is acted upon." },
+      ],
+      figures: [
+        { k: "Model", v: "GBT" },
+        { k: "Reference", v: "linear" },
+        { k: "Seeds", v: "fixed" },
+      ],
+      constraint:
+        "Keep the configured trials, seeds, folds, model members and data coverage intact for research validation. A reduced smoke run can show that the machinery executes; it cannot support the research claim.",
+      src: "src/research/xg/{model,config,optuna,reproducibility}.py; src/research/training/{fitter,runner,manifest,linear,predictor}.py",
+    },
+    {
+      n: "05",
+      k: "Walk-forward",
+      plain:
+        "Decide the geometry of what the model may learn from and what it will be judged on, and put hard gaps between the two wherever an outcome could leak across a boundary.",
+      points: [
+        { k: "Windows", v: "Half-open intervals bounded by whole UTC hours. The development window runs to 2025-01-01; the evaluation window runs from 2025-01-01 to 2026-08-31 and is declared separately so that it can stay untouched." },
+        { k: "Folds", v: "Training, validation, early-stopping and rolling lengths are whole calendar months, with a minimum of 24 months of training history. Training history is either expanding or a rolling calendar-month window." },
+        { k: "Purge", v: "Outcomes that could cross a held-out boundary are purged, so a label whose horizon reaches into validation cannot also be trained on." },
+        { k: "Embargo", v: "Elapsed time is removed before validation and again before the inner early-stopping interval, because the early-stopping set is itself a selection surface." },
+        { k: "Separation", v: "Model selection is kept away from untouched evaluation data. Timestamps, ordering, boundaries and lineage are validated explicitly rather than inferred from the data being well-behaved." },
+      ],
+      figures: [
+        { k: "Min training", v: "24 mo" },
+        { k: "Fold unit", v: "1 mo" },
+        { k: "Evaluation", v: "unspent" },
+      ],
+      constraint:
+        "Changes to data loading, features, labels, splits, backtests or evaluation require explicit scrutiny of the affected causal availability and temporal boundaries before they may be kept.",
+      src: "src/research/walkforward/{config,folds,dto,diagnostics}.py; CONTRACT.md \u2014 temporal integrity",
+    },
+    {
+      n: "06",
+      k: "Policy",
+      plain:
+        "Translate a score into a position without changing the problem the model was trained to solve. This is where a ranker becomes flat or long, and where holds are capped and closed.",
+      points: [
+        { k: "Hysteresis", v: "Entry and exit compare the score with its own causal rolling distribution rather than a fixed threshold. A long opens above the entry percentile and closes below the exit percentile; scores between the cutoffs retain the current state, and boundary equality carries it." },
+        { k: "Causal quantiles", v: "Cutoffs read only the most recent window of valid scores, so they track changing fold-model scales instead of assuming one global calibration. Rows before the warmup count is reached hold flat." },
+        { k: "Deployed band", v: "The published development replay ran a 70/20 band over a 36,000-score window on a 29-feature subset with a 12-hour hold cap. The repository's stock default is a 75/25 band over 24,000 scores with an 8,000-score warmup." },
+        { k: "Hold cap", v: "One continuous long is capped in fillable decision steps converted from market hours. A capped entry stays blocked until the score leaves the entry region, and may re-enter only after the score revisits it." },
+        { k: "Session flat", v: "The book goes flat before the cash close at 15:00 CT and does not reopen until 17:00 CT, so overnight gap risk is a decision rather than a residue." },
+      ],
+      figures: [
+        { k: "Band", v: "70 / 20" },
+        { k: "Hold cap", v: "12h" },
+        { k: "Max units", v: "1 unit book" },
+      ],
+      constraint:
+        "Policy may not impose artificial neutrality, nor penalise, veto, rebalance or suppress persistent long exposure merely because the market is trending upward. A penalty requires evidence that the exposure is beta rather than alpha.",
+      src: "src/research/policy/{policy,config,optuna,diagnostics}.py",
+    },
+    {
+      n: "07",
+      k: "Backtest",
+      plain:
+        "Replay the decision stream through a book that holds a real contract and pays real costs, so that the result is an accounting statement rather than a simulation of one.",
+      points: [
+        { k: "Unit book", v: "One E-mini S&P 500 contract. The unit book is where pre-registered gates are measured, kept deliberately distinct from account-level performance estimates." },
+        { k: "Fills", v: "Fills happen on the active outright's raw minute open. The book crosses one tick per side plus commission on every entry and every exit." },
+        { k: "Rolls", v: "Each quarterly roll is booked as two fills at the calendar's roll prices. Futures carry no financing charge at the unit book: the carry sits in the price and is realised through the roll gaps." },
+        { k: "No slippage", v: "Slippage is not permitted in the repository \u2014 not as a parameter, not as a proposal. Costs cannot be reduced to compensate for inadequate edge, and fees may not be cited as the primary reason a strategy failed." },
+        { k: "Kernels", v: "The backtest kernel, ledger and attribution are separate concerns: the kernel decides fills, the ledger accounts for them, and attribution explains where the result came from." },
+      ],
+      figures: [
+        { k: "Cost per side", v: "1 tick + comm." },
+        { k: "Spread paid", v: "\u2212$168,816" },
+        { k: "Completed trades", v: "5,464" },
+      ],
+      constraint:
+        "Do not add gates, filters or execution layers that conceal broken model or target behaviour. Incorrect cost calculations are a valid debugging target; convenient cost assumptions are not.",
+      src: "src/research/backtest/{kernel,execution,ledger,rolls,attribution,metrics}.py",
+    },
+    {
+      n: "08",
+      k: "Account",
+      plain:
+        "Price the same decision stream at portfolio scale, under one set of conventions, and then prove the equity path adds up.",
+      points: [
+        { k: "Sizing", v: "Notional-fraction sizing against a 10% annual market-volatility target and a target notional leverage of 1.0, with a 14-hour ATR estimate and a hard 20\u00d7 leverage ceiling." },
+        { k: "Realised exposure", v: "Across the development replay the account held at most 109 units, averaged 61.7 units while in the market, and ran mean leverage of 0.99\u00d7 in the market \u2014 the model's edge is not a leverage artefact." },
+        { k: "Financing", v: "A 2.5% annual administrative financing charge is applied from a 5pm ET snapshot. Over the whole replay that came to $761 against $496,700 of net PnL, because the book is flat much of the time." },
+        { k: "Conventions", v: "UTC daily closes, simple daily returns against the prior close, Sharpe and volatility annualised by the square root of 252 with the sample standard deviation, CAGR over elapsed calendar time, close-to-close drawdown against a running peak starting at opening capital." },
+        { k: "Reconciliation", v: "Every replay is re-derived by an independent decision-row accounting and required to agree. Maximum equity-path error $0.00, trade-accounting error $0.00, net PnL agreeing to nine decimal places, against a $0.001 tolerance." },
+      ],
+      figures: [
+        { k: "Opening capital", v: "$100,000" },
+        { k: "Mean leverage", v: "0.99\u00d7" },
+        { k: "Reconciliation", v: "pass" },
+      ],
+      constraint:
+        "Price every stage's decision stream through the same account conventions and compare books over the same window with identical sizing and contract terms. Unit-book gates stay distinct from account-level performance estimates.",
+      src: "src/research/account/{simulator,curve,config,report,diagnostics}.py; performance_results/books/development/seed_0/reconciliation.json",
+    },
+  ];
+
+  renderVals() {
+    const S = Component.STAGES;
+    const fallback = Math.min(Math.max((this.props.defaultStage ?? 1) - 1, 0), S.length - 1);
+    const i = this.state.stage === null ? fallback : this.state.stage;
+    const f = this.state.features;
+
+    const railStyle = (active) =>
+      "width:100%;display:flex;align-items:baseline;gap:10px;padding:11px 20px 11px 0;background:" +
+      (active ? "oklch(0.945 0.012 250)" : "transparent") +
+      ";border:none;border-left:2px solid " +
+      (active ? "oklch(0.505 0.155 252)" : "transparent") +
+      ";padding-left:14px;margin-left:-16px;text-align:left;cursor:pointer;font-family:inherit;color:" +
+      (active ? "oklch(0.235 0.018 252)" : "oklch(0.42 0.014 252)");
+
+    const chipStyle = (active) =>
+      "padding:7px 12px;border-radius:2px;border:1px solid " +
+      (active ? "oklch(0.505 0.155 252)" : "oklch(0.885 0.008 248)") +
+      ";background:" +
+      (active ? "oklch(0.505 0.155 252)" : "oklch(0.995 0.002 245)") +
+      ";color:" +
+      (active ? "oklch(0.99 0.002 245)" : "oklch(0.35 0.014 252)") +
+      ";font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;white-space:nowrap";
+
+    const fmtBound = (v) => (v === "inf" ? "\u221e" : v === "-inf" ? "\u2212\u221e" : v);
+
+    let familyChips = [];
+    let featureRows = [];
+    let familyNote = "";
+    let featureCount = "56";
+
+    if (f) {
+      featureCount = String(f.features.length);
+      const counts = {};
+      f.features.forEach((row) => {
+        counts[row[1]] = (counts[row[1]] || 0) + 1;
+      });
+      familyChips = [{ key: "all", label: "All families", count: f.features.length }].concat(
+        Object.keys(f.families).map((k) => ({ key: k, label: k, count: counts[k] || 0 }))
+      ).map((c) => ({
+        label: c.label,
+        count: c.count,
+        style: chipStyle(this.state.family === c.key),
+        select: () => this.setState({ family: c.key }),
+      }));
+
+      familyNote =
+        this.state.family === "all"
+          ? "All nine families, in the order the model receives them. Sparse features are those that legitimately have no value for some rows after warmup \u2014 an absent 10-year note bar, for example \u2014 and are marked rather than filled."
+          : f.families[this.state.family] + ".";
+
+      featureRows = f.features
+        .filter((row) => this.state.family === "all" || row[1] === this.state.family)
+        .map((row) => ({
+          name: row[0],
+          family: row[1],
+          timeframe: row[2],
+          basis: row[5],
+          bounds: "[" + fmtBound(row[3]) + ", " + fmtBound(row[4]) + "]",
+          sparse: row[6] ? "yes" : "\u2014",
+        }));
+    }
+
+    return {
+      rail: S.map((s, k) => ({
+        n: s.n,
+        k: s.k,
+        style: railStyle(k === i),
+        select: () => this.setState({ stage: k }),
+      })),
+      stage: S[i],
+      evalWindow: "2025-01-01 to 2026-08-31",
+
+      ladder: [
+        {
+          name: "Develop",
+          tag: "Selection-influenced",
+          tagBg: "oklch(0.33 0.03 60)",
+          tagFg: "oklch(0.88 0.09 70)",
+          what:
+            "Establishes that a feature, parameter, policy or model change improves the frozen incumbent, measured against configured seeds and pre-registered unit-book gates.",
+          limit:
+            "Development history influenced selection. A develop result is not expected performance and not a basis for sizing.",
+          status: "Stage of every figure published on this site",
+        },
+        {
+          name: "Scorecard",
+          tag: "Forward replay",
+          tagBg: "oklch(0.33 0.04 250)",
+          tagFg: "oklch(0.86 0.10 250)",
+          what:
+            "Establishes or replaces the planning estimate after the selection process changes. Configurations are chosen using only history before each forward year, then those years are replayed.",
+          limit:
+            "A changed selection process requires a new study lineage first. Develop and scorecard are compared over the same span to size the hindsight premium.",
+          status: "Not published",
+        },
+        {
+          name: "Holdout",
+          tag: "Spent once",
+          tagBg: "oklch(0.33 0.04 150)",
+          tagFg: "oklch(0.86 0.10 155)",
+          what:
+            "A single go/no-go decision on a line that was frozen before the untouched outcomes were inspected.",
+          limit:
+            "Usable once per line. Once spent it cannot be recycled for tuning, and the promoted choice must be recorded into the incumbent composition before the freeze.",
+          status: "Not published",
+        },
+      ],
+
+      showRegistry: this.props.showRegistry !== false,
+      familyChips,
+      featureRows,
+      familyNote,
+      featureCount,
+
+      prohibitions: [
+        "No slippage assumptions. They cannot be proposed or implemented, so a favourable execution model is not available as a lever.",
+        "No substituting a development result for a blind or untouched evaluation, in any claim.",
+        "No adjusting thresholds, evaluation criteria or diagnostics to make an unsuccessful intervention pass.",
+        "No reusing a spent holdout for tuning, and no recycling a study identity when the selection problem has changed.",
+        "No gates, filters or execution layers that conceal broken model or target behaviour, and no artificial neutrality imposed to make long exposure look balanced.",
+        "No citing fees as the primary reason a strategy failed, and no reducing assumed costs to compensate for inadequate edge.",
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

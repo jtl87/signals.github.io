@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:oklch(0.971 0.005 245);color:oklch(0.235 0.018 252);font-family:"IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:oklch(0.505 0.155 252);text-decoration:none}
+  a:hover{color:oklch(0.40 0.17 252);text-decoration:underline}
+</style>
+</helmet>
+
+<div style="min-height:100vh">
+
+  <header style="position:sticky;top:0;z-index:20;background:oklch(0.971 0.005 245 / 0.92);backdrop-filter:blur(8px);border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="Home.dc.html" style="display:flex;align-items:baseline;gap:9px;color:oklch(0.235 0.018 252);text-decoration:none">
+        <span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;letter-spacing:-0.01em">Meridian Research</span>
+        <span style="font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:oklch(0.525 0.013 252)">ES</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:2px">
+        <a href="Research.dc.html" style="padding:7px 12px;font-size:13.5px;font-weight:500;color:oklch(0.235 0.018 252);text-decoration:none">Research</a>
+        <a href="Evidence.dc.html" style="padding:7px 12px;font-size:13.5px;font-weight:600;color:oklch(0.505 0.155 252);text-decoration:none">Evidence</a>
+        <a href="Services.dc.html" style="padding:7px 12px;font-size:13.5px;font-weight:500;color:oklch(0.235 0.018 252);text-decoration:none">Services</a>
+        <a href="Services.dc.html" style="margin-left:10px;padding:8px 15px;font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.09em;text-transform:uppercase;background:oklch(0.505 0.155 252);color:oklch(0.99 0.002 245);border-radius:2px;text-decoration:none;white-space:nowrap" style-hover="background:oklch(0.42 0.165 252)">Free signals</a>
+      </nav>
+    </div>
+  </header>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:58px 24px 48px">
+      <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.505 0.155 252)">Evidence</div>
+      <h1 style="margin:22px 0 0;font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.04;letter-spacing:-0.026em;max-width:28ch;text-wrap:balance">Every figure, and the stage it rests on.</h1>
+      <p style="margin:22px 0 0;font-size:16px;line-height:1.62;max-width:68ch;color:oklch(0.34 0.016 252);text-wrap:pretty">This page reproduces the account report the research pipeline generates, unedited in substance. It is a <strong style="font-weight:600">development-stage</strong> replay: the configuration shown was selected with sight of this window, so the numbers describe the process that produced the model rather than a return you should expect from it. The declared evaluation window, 2025-01-01 to 2026-08-31, has not been used.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));border-top:1px solid oklch(0.885 0.008 248);border-left:1px solid oklch(0.885 0.008 248);margin-top:36px">
+        <sc-for list="{{ runMeta }}" as="m" hint-placeholder-count="8">
+          <div style="background:oklch(0.995 0.002 245);padding:14px 15px 16px;border-right:1px solid oklch(0.885 0.008 248);border-bottom:1px solid oklch(0.885 0.008 248)">
+            <div style="font-family:'Roboto Mono',monospace;font-size:9px;letter-spacing:0.11em;text-transform:uppercase;color:oklch(0.525 0.013 252)">{{ m.k }}</div>
+            <div style="font-family:'Roboto Mono',monospace;font-size:12.5px;margin-top:6px;color:oklch(0.235 0.018 252);word-break:break-word">{{ m.v }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:56px 24px">
+      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(22px,2.5vw,31px);letter-spacing:-0.022em;line-height:1.1">Headline, by book</h2>
+      <p style="margin:12px 0 0;font-size:14.5px;line-height:1.6;max-width:76ch;color:oklch(0.42 0.014 252);text-wrap:pretty">Both books replay the same window with identical sizing, contract terms and financing. &Delta; Sharpe is the comparator's Sharpe less the first book's. The passive book is always long with no selection: it is the benchmark the modelling objective has to beat to claim anything at all.</p>
+
+      <div style="margin-top:26px;width:100%;overflow-x:auto">
+        <table style="width:100%;min-width:820px;border-collapse:collapse;font-variant-numeric:tabular-nums">
+          <thead>
+            <tr>
+              <sc-for list="{{ headlineCols }}" as="c" hint-placeholder-count="9">
+                <th style="{{ c.style }}">{{ c.label }}</th>
+              </sc-for>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ headlineRows }}" as="r" hint-placeholder-count="2">
+              <tr>
+                <td style="{{ r.nameStyle }}">{{ r.name }}<span style="display:block;font-family:'IBM Plex Sans',sans-serif;font-weight:400;font-size:11px;color:oklch(0.525 0.013 252);letter-spacing:0">{{ r.note }}</span></td>
+                <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="8">
+                  <td style="{{ c.style }}">{{ c.v }}</td>
+                </sc-for>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:oklch(0.215 0.020 252);color:oklch(0.94 0.004 245)">
+    <div style="max-width:1180px;margin:0 auto;padding:56px 24px 60px">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:14px">
+        <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(22px,2.5vw,31px);letter-spacing:-0.022em;line-height:1.2;white-space:nowrap">Account path</h2>
+        <div style="font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:0.09em;text-transform:uppercase;color:oklch(0.74 0.012 252)">{{ hoverLabel }}</div>
+      </div>
+
+      <div onMouseMove="{{ onMove }}" onMouseLeave="{{ onLeave }}" style="position:relative;margin-top:20px;border:1px solid oklch(0.34 0.02 252);background:oklch(0.245 0.020 252);padding:16px 16px 8px;cursor:crosshair">
+        <svg viewBox="0 0 960 300" preserveAspectRatio="none" style="display:block;width:100%;height:min(40vw,300px)">
+          <path d="{{ gridPath }}" stroke="oklch(0.33 0.02 252)" stroke-width="1" fill="none"></path>
+          <path d="{{ passivePath }}" stroke="oklch(0.60 0.012 252)" stroke-width="1.6" fill="none"></path>
+          <path d="{{ devPath }}" stroke="oklch(0.72 0.16 252)" stroke-width="2" fill="none"></path>
+          <path d="{{ crossPath }}" stroke="oklch(0.85 0.06 252)" stroke-width="1" stroke-dasharray="3 3" fill="none"></path>
+        </svg>
+        <div style="display:flex;flex-wrap:wrap;gap:20px;padding:10px 0 6px;font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.75 0.012 252)">
+          <span style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:2px;background:oklch(0.72 0.16 252)"></span>Model {{ hoverDev }}</span>
+          <span style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:2px;background:oklch(0.60 0.012 252)"></span>Passive {{ hoverPassive }}</span>
+          <span style="margin-left:auto">Log equity &nbsp;&middot;&nbsp; hover to read</span>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;border:1px solid oklch(0.34 0.02 252);background:oklch(0.245 0.020 252);padding:16px 16px 10px">
+        <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:oklch(0.74 0.012 252);margin-bottom:10px">Drawdown from running peak</div>
+        <svg viewBox="0 0 960 170" preserveAspectRatio="none" style="display:block;width:100%;height:min(22vw,170px)">
+          <path d="{{ ddGridPath }}" stroke="oklch(0.33 0.02 252)" stroke-width="1" fill="none"></path>
+          <path d="{{ passiveDdPath }}" stroke="oklch(0.60 0.012 252)" stroke-width="1.4" fill="none"></path>
+          <path d="{{ devDdPath }}" stroke="oklch(0.72 0.16 252)" stroke-width="1.8" fill="none"></path>
+        </svg>
+        <div style="display:flex;flex-wrap:wrap;gap:20px;padding:8px 0 4px;font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.75 0.012 252)">
+          <span>Model trough {{ devTrough }}</span>
+          <span>Passive trough {{ passiveTrough }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:56px 24px">
+      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(22px,2.5vw,31px);letter-spacing:-0.022em;line-height:1.1">Annual net PnL</h2>
+      <p style="margin:12px 0 0;font-size:14.5px;line-height:1.6;max-width:72ch;color:oklch(0.42 0.014 252);text-wrap:pretty">From monthly account changes, both books on the same scale. 2013 is a part year from {{ windowStart }}. The two loss years are the ones worth reading first.</p>
+
+      <div style="margin-top:28px;border-top:1px solid oklch(0.885 0.008 248)">
+        <div style="display:grid;grid-template-columns:52px minmax(0,1fr) 96px;gap:14px;padding:8px 0;border-bottom:1px solid oklch(0.885 0.008 248);font-family:'Roboto Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.525 0.013 252)">
+          <span>Year</span><span>Model &nbsp;/&nbsp; passive long</span><span style="text-align:right">Model net</span>
+        </div>
+        <sc-for list="{{ annual }}" as="a" hint-placeholder-count="12">
+          <div style="display:grid;grid-template-columns:52px minmax(0,1fr) 96px;gap:14px;align-items:center;padding:9px 0;border-bottom:1px solid oklch(0.905 0.008 248)">
+            <span style="font-family:'Roboto Mono',monospace;font-size:12px;color:oklch(0.42 0.014 252)">{{ a.year }}</span>
+            <div style="position:relative;min-width:0">
+              <div style="position:absolute;top:0;bottom:0;left:{{ a.zero }};width:1px;background:oklch(0.82 0.01 248)"></div>
+              <div style="display:flex;flex-direction:column;gap:3px">
+                <div style="{{ a.modelBar }}"></div>
+                <div style="{{ a.passiveBar }}"></div>
+              </div>
+            </div>
+            <span style="font-family:'Roboto Mono',monospace;font-size:12px;text-align:right;color:{{ a.modelColor }};font-variant-numeric:tabular-nums">{{ a.modelValue }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.525 0.013 252)">
+        <span style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:7px;background:oklch(0.505 0.155 252)"></span>Model</span>
+        <span style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:7px;background:oklch(0.72 0.012 252)"></span>Passive long</span>
+        <span style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:7px;background:oklch(0.52 0.16 25)"></span>Loss</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:56px 24px">
+      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(22px,2.5vw,31px);letter-spacing:-0.022em;line-height:1.1">Trade economics</h2>
+      <p style="margin:12px 0 0;font-size:14.5px;line-height:1.6;max-width:74ch;color:oklch(0.42 0.014 252);text-wrap:pretty">Completed account-scale trades: units locked at entry, times the unit book's fills, net of spread and financing. The average loser is larger than the average winner. That is the intended shape for this policy &mdash; a high hit rate paying for occasional bad exits &mdash; and it is the shape most likely to disappoint anyone watching a small number of trades.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));border-top:1px solid oklch(0.885 0.008 248);border-left:1px solid oklch(0.885 0.008 248);margin-top:28px">
+        <sc-for list="{{ tradeStats }}" as="t" hint-placeholder-count="8">
+          <div style="background:oklch(0.995 0.002 245);padding:15px 16px 17px;border-right:1px solid oklch(0.885 0.008 248);border-bottom:1px solid oklch(0.885 0.008 248)">
+            <div style="font-family:'Roboto Mono',monospace;font-size:9px;letter-spacing:0.11em;text-transform:uppercase;color:oklch(0.525 0.013 252)">{{ t.k }}</div>
+            <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:22px;letter-spacing:-0.02em;margin-top:5px;font-variant-numeric:tabular-nums">{{ t.v }}</div>
+            <div style="font-size:11px;color:oklch(0.525 0.013 252);margin-top:2px">{{ t.note }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="margin-top:26px;border:1px solid oklch(0.885 0.008 248);background:oklch(0.995 0.002 245);padding:20px 20px 14px">
+        <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:oklch(0.525 0.013 252)">Distribution of completed trade net PnL &nbsp;&middot;&nbsp; 24 buckets</div>
+        <div style="display:flex;align-items:flex-end;gap:2px;height:170px;margin-top:18px">
+          <sc-for list="{{ histogram }}" as="h" hint-placeholder-count="24">
+            <div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:5px;height:100%">
+              <span style="font-family:'Roboto Mono',monospace;font-size:9px;color:oklch(0.525 0.013 252)">{{ h.count }}</span>
+              <div style="{{ h.bar }}"></div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:2px;margin-top:8px;border-top:1px solid oklch(0.885 0.008 248);padding-top:8px">
+          <sc-for list="{{ histogram }}" as="h" hint-placeholder-count="24">
+            <div style="flex:1;min-width:0;font-family:'Roboto Mono',monospace;font-size:8px;color:oklch(0.55 0.013 252);text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ h.tick }}</div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:56px 24px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:start">
+        <div>
+          <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(22px,2.5vw,31px);letter-spacing:-0.022em;line-height:1.1">From gross to net</h2>
+          <p style="margin:12px 0 0;font-size:14.5px;line-height:1.6;color:oklch(0.42 0.014 252);text-wrap:pretty">Contributions reconcile the gross scaled result to net PnL. Spread is the dominant cost by two orders of magnitude, which is the expected shape for a policy that completes {{ tradesPerYear }} trades a year.</p>
+          <div style="margin-top:24px;border-top:1px solid oklch(0.885 0.008 248)">
+            <sc-for list="{{ accounting }}" as="a" hint-placeholder-count="5">
+              <div style="padding:13px 0;border-bottom:1px solid oklch(0.885 0.008 248)">
+                <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px">
+                  <span style="font-size:14px;font-weight:{{ a.weight }};color:oklch(0.28 0.016 252)">{{ a.label }}</span>
+                  <span style="font-family:'Roboto Mono',monospace;font-size:13px;color:{{ a.color }};font-variant-numeric:tabular-nums;white-space:nowrap">{{ a.value }}</span>
+                </div>
+                <div style="{{ a.bar }}"></div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(22px,2.5vw,31px);letter-spacing:-0.022em;line-height:1.1">Sizing and reconciliation</h2>
+          <p style="margin:12px 0 0;font-size:14.5px;line-height:1.6;color:oklch(0.42 0.014 252);text-wrap:pretty">The account layer is where a unit-book result becomes a portfolio figure, so its conventions are fixed and its output is re-derived independently and required to agree.</p>
+          <div style="margin-top:24px;border-top:1px solid oklch(0.885 0.008 248)">
+            <sc-for list="{{ sizing }}" as="s" hint-placeholder-count="10">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid oklch(0.885 0.008 248)">
+                <span style="font-size:13.5px;color:oklch(0.42 0.014 252)">{{ s.k }}</span>
+                <span style="font-family:'Roboto Mono',monospace;font-size:12.5px;color:oklch(0.235 0.018 252);font-variant-numeric:tabular-nums;text-align:right">{{ s.v }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid oklch(0.885 0.008 248)">
+    <div style="max-width:1180px;margin:0 auto;padding:56px 24px 62px">
+      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(22px,2.5vw,31px);letter-spacing:-0.022em;line-height:1.1;max-width:24ch">What this evidence does not establish</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1px;background:oklch(0.885 0.008 248);border:1px solid oklch(0.885 0.008 248);margin-top:28px">
+        <sc-for list="{{ caveats }}" as="c" hint-placeholder-count="4">
+          <div style="background:oklch(0.995 0.002 245);padding:22px 22px 24px">
+            <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.015em;line-height:1.2">{{ c.h }}</h3>
+            <p style="margin:10px 0 0;font-size:13.8px;line-height:1.6;color:oklch(0.38 0.014 252);text-wrap:pretty">{{ c.b }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:26px 0 0;font-family:'Roboto Mono',monospace;font-size:11px;line-height:1.85;color:oklch(0.525 0.013 252);max-width:88ch">Convention: {{ convention }}.</p>
+    </div>
+  </section>
+
+  <footer style="background:oklch(0.215 0.020 252);color:oklch(0.80 0.012 252)">
+    <div style="max-width:1180px;margin:0 auto;padding:52px 24px 60px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:32px;align-items:start">
+      <div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:oklch(0.96 0.004 245);letter-spacing:-0.01em">Meridian Research</div>
+        <p style="margin:10px 0 0;font-family:'Roboto Mono',monospace;font-size:10.5px;line-height:1.8;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.66 0.012 252)">Run {{ runId }}<br>Bundle {{ fingerprint }}<br>Generated {{ generated }}</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="Home.dc.html" style="color:oklch(0.86 0.01 252);font-size:13.5px">Overview</a>
+        <a href="Research.dc.html" style="color:oklch(0.86 0.01 252);font-size:13.5px">Research method</a>
+        <a href="Services.dc.html" style="color:oklch(0.86 0.01 252);font-size:13.5px">Services</a>
+      </div>
+      <p style="margin:0;grid-column:span 2;min-width:0;font-size:12px;line-height:1.7;color:oklch(0.70 0.012 252)">Trading futures involves substantial risk of loss and is not suitable for every investor. Figures on this site are replays of historical decision streams at the development research stage; they influenced model selection and are not a forecast, an offer, or a basis for position sizing. Past performance does not indicate future results. Nothing here is investment advice.</p>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;curveScale&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;log&quot;,&quot;linear&quot;],&quot;default&quot;:&quot;log&quot;,&quot;tsType&quot;:&quot;\&quot;log\&quot; | \&quot;linear\&quot;&quot;,&quot;section&quot;:&quot;Charts&quot;},&quot;showBenchmark&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Charts&quot;}}">
+class Component extends DCLogic {
+  state = { data: null, hover: null };
+
+  componentDidMount() {
+    fetch("data/model.json")
+      .then((r) => r.json())
+      .then((data) => this.setState({ data }))
+      .catch(() => this.setState({ data: null }));
+  }
+
+  static money(v) {
+    return (v < 0 ? "\u2212" : "") + "$" + Math.round(Math.abs(v)).toLocaleString("en-US");
+  }
+
+  static pct(v, dp) {
+    return (v * 100).toFixed(dp === undefined ? 1 : dp) + "%";
+  }
+
+  static equityPath(values, lo, hi, w, h, useLog) {
+    let d = "";
+    for (let i = 0; i < values.length; i++) {
+      const x = (i / (values.length - 1)) * w;
+      const v = useLog ? Math.log(values[i]) : values[i];
+      const y = h - ((v - lo) / (hi - lo)) * h;
+      d += (i ? "L" : "M") + x.toFixed(1) + " " + y.toFixed(1);
+    }
+    return d;
+  }
+
+  static ddPath(values, worst, w, h) {
+    let d = "";
+    for (let i = 0; i < values.length; i++) {
+      const x = (i / (values.length - 1)) * w;
+      const y = (Math.abs(values[i]) / worst) * h;
+      d += (i ? "L" : "M") + x.toFixed(1) + " " + y.toFixed(1);
+    }
+    return d;
+  }
+
+  onMove = (e) => {
+    const box = e.currentTarget.getBoundingClientRect();
+    const t = (e.clientX - box.left - 16) / (box.width - 32);
+    this.setState({ hover: Math.min(Math.max(t, 0), 1) });
+  };
+
+  onLeave = () => this.setState({ hover: null });
+
+  renderVals() {
+    const M = Component;
+    const d = this.state.data;
+    const em = "\u2014";
+
+    const th = (align) =>
+      "text-align:" + align + ";padding:10px 8px;border-bottom:1px solid oklch(0.235 0.018 252);font-family:'Roboto Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.42 0.014 252);font-weight:500;white-space:nowrap";
+    const td = (align, strong) =>
+      "text-align:" + align + ";padding:14px 8px;border-bottom:1px solid oklch(0.905 0.008 248);font-family:'Roboto Mono',monospace;font-size:13px;font-weight:" + (strong ? "500" : "400") + ";color:oklch(0.235 0.018 252);white-space:nowrap";
+
+    const headlineCols = ["Book", "Seeds", "CAGR", "Sharpe", "\u0394 Sharpe", "Volatility", "Max drawdown", "Final equity", "Net PnL", "Financing"].map(
+      (label, i) => ({ label, style: th(i === 0 ? "left" : "right") })
+    );
+
+    let headlineRows = [];
+    if (d) {
+      const mk = (name, note, b, delta) => ({
+        name,
+        note,
+        nameStyle:
+          "text-align:left;padding:14px 8px 14px 0;border-bottom:1px solid oklch(0.905 0.008 248);font-family:'Archivo',sans-serif;font-weight:600;font-size:14.5px;letter-spacing:-0.01em;color:oklch(0.235 0.018 252)",
+        cells: [
+          b.seeds.length,
+          M.pct(b.summary.cagr, 2),
+          b.summary.sharpe.toFixed(3),
+          delta,
+          M.pct(b.summary.annual_vol, 2),
+          M.pct(b.summary.max_drawdown_pct, 2),
+          M.money(b.summary.final_equity_usd),
+          M.money(b.summary.net_pnl_usd),
+          M.money(-b.summary.financing_usd),
+        ].map((v) => ({ v, style: td("right", name === "Model") })),
+      });
+      headlineRows = [
+        mk("Model", "29-feature subset, 70/20 band, 12h hold", d.books.development, "\u2014"),
+        mk("Passive long", "always long, no selection", d.books.passive, (d.books.passive.summary.sharpe - d.books.development.summary.sharpe).toFixed(3)),
+      ];
+    }
+
+    let devPath = "", passivePath = "", gridPath = "", crossPath = "";
+    let devDdPath = "", passiveDdPath = "", ddGridPath = "";
+    let hoverLabel = "Hover the chart to read a date", hoverDev = em, hoverPassive = em;
+
+    if (d) {
+      const c = d.curve;
+      const useLog = (this.props.curveScale ?? "log") === "log";
+      const showBench = this.props.showBenchmark !== false;
+      const all = showBench ? c.dev_equity.concat(c.passive_equity) : c.dev_equity;
+      const rawLo = Math.min.apply(null, all) * 0.97;
+      const rawHi = Math.max.apply(null, all) * 1.03;
+      const lo = useLog ? Math.log(rawLo) : rawLo;
+      const hi = useLog ? Math.log(rawHi) : rawHi;
+      devPath = M.equityPath(c.dev_equity, lo, hi, 960, 300, useLog);
+      passivePath = showBench ? M.equityPath(c.passive_equity, lo, hi, 960, 300, useLog) : "";
+      for (let i = 0; i <= 4; i++) gridPath += "M0 " + ((i / 4) * 300).toFixed(1) + "L960 " + ((i / 4) * 300).toFixed(1);
+
+      const worst = Math.max(
+        Math.max.apply(null, c.dev_dd.map(Math.abs)),
+        Math.max.apply(null, c.passive_dd.map(Math.abs))
+      );
+      devDdPath = M.ddPath(c.dev_dd, worst, 960, 170);
+      passiveDdPath = showBench ? M.ddPath(c.passive_dd, worst, 960, 170) : "";
+      for (let i = 0; i <= 3; i++) ddGridPath += "M0 " + ((i / 3) * 170).toFixed(1) + "L960 " + ((i / 3) * 170).toFixed(1);
+
+      if (this.state.hover !== null) {
+        const idx = Math.round(this.state.hover * (c.dates.length - 1));
+        hoverLabel = c.dates[idx];
+        hoverDev = M.money(c.dev_equity[idx]) + " \u00b7 dd " + M.pct(Math.abs(c.dev_dd[idx]));
+        hoverPassive = M.money(c.passive_equity[idx]) + " \u00b7 dd " + M.pct(Math.abs(c.passive_dd[idx]));
+        const x = ((idx / (c.dates.length - 1)) * 960).toFixed(1);
+        crossPath = "M" + x + " 0L" + x + " 300";
+      } else {
+        hoverDev = M.money(d.books.development.summary.final_equity_usd) + " final";
+        hoverPassive = M.money(d.books.passive.summary.final_equity_usd) + " final";
+      }
+    }
+
+    let annual = [];
+    if (d) {
+      const rows = d.books.development.annual;
+      const pas = d.books.passive.annual;
+      const maxAbs = Math.max.apply(
+        null,
+        rows.concat(pas).map((r) => Math.abs(r.pnl))
+      );
+      const zeroPct = 26;
+      const span = 100 - zeroPct;
+      const bar = (v, color) => {
+        const frac = (Math.abs(v) / maxAbs) * (v < 0 ? zeroPct : span);
+        return (
+          "height:8px;border-radius:1px;background:" +
+          color +
+          ";width:" +
+          frac.toFixed(2) +
+          "%;margin-left:" +
+          (v < 0 ? (zeroPct - frac).toFixed(2) : String(zeroPct)) +
+          "%"
+        );
+      };
+      annual = rows.map((r, i) => {
+        const p = pas[i];
+        return {
+          year: r.year,
+          zero: zeroPct + "%",
+          modelBar: bar(r.pnl, r.pnl < 0 ? "oklch(0.52 0.16 25)" : "oklch(0.505 0.155 252)"),
+          passiveBar:
+            this.props.showBenchmark === false
+              ? "display:none"
+              : bar(p.pnl, p.pnl < 0 ? "oklch(0.62 0.13 25)" : "oklch(0.72 0.012 252)"),
+          modelValue: M.money(r.pnl),
+          modelColor: r.pnl < 0 ? "oklch(0.48 0.17 25)" : "oklch(0.30 0.016 252)",
+        };
+      });
+    }
+
+    let histogram = [];
+    if (d) {
+      const maxCount = Math.max.apply(null, d.trades.histogram.map((h) => h.value));
+      histogram = d.trades.histogram.map((h, i) => ({
+        count: h.value ? h.value : "",
+        tick: i % 3 === 0 ? h.label.replace("$-", "\u2212$") : "",
+        bar:
+          "width:100%;border-radius:1px 1px 0 0;background:" +
+          (h.label.indexOf("-") > 0 ? "oklch(0.55 0.15 25)" : "oklch(0.505 0.155 252)") +
+          ";height:" +
+          ((h.value / maxCount) * 100).toFixed(2) +
+          "%;min-height:" +
+          (h.value ? "2px" : "0"),
+      }));
+    }
+
+    let accounting = [];
+    if (d) {
+      const maxAbs = Math.max.apply(null, d.accounting.map((a) => Math.abs(a.value)));
+      accounting = d.accounting
+        .filter((a) => a.value !== 0)
+        .map((a) => ({
+          label: a.label,
+          value: M.money(a.value),
+          weight: a.label === "Net PnL" ? "600" : "400",
+          color: a.value < 0 ? "oklch(0.48 0.17 25)" : "oklch(0.235 0.018 252)",
+          bar:
+            "margin-top:8px;height:5px;border-radius:1px;background:" +
+            (a.value < 0 ? "oklch(0.55 0.15 25)" : "oklch(0.505 0.155 252)") +
+            ";width:" +
+            ((Math.abs(a.value) / maxAbs) * 100).toFixed(2) +
+            "%",
+        }));
+    }
+
+    return {
+      runMeta: d
+        ? [
+            { k: "Stage", v: d.meta.stage },
+            { k: "Instrument", v: d.meta.instrument },
+            { k: "Window", v: d.meta.window.start + " \u2192 " + d.meta.window.end },
+            { k: "Trading days", v: "3,584" },
+            { k: "Opening capital", v: "$100,000" },
+            { k: "Sizing", v: d.meta.config.sizing },
+            { k: "Financing", v: d.meta.config.financing },
+            { k: "Bundle", v: d.meta.config.fingerprint },
+          ]
+        : [],
+      headlineCols,
+      headlineRows,
+      windowStart: d ? d.meta.window.start : em,
+      convention: d ? d.meta.convention : em,
+      runId: "20260905T071000Z-spx500-seed-0",
+      fingerprint: d ? d.meta.config.fingerprint : em,
+      generated: d ? d.meta.generated_at.slice(0, 10) : em,
+
+      onMove: this.onMove,
+      onLeave: this.onLeave,
+      gridPath,
+      devPath,
+      passivePath,
+      crossPath,
+      ddGridPath,
+      devDdPath,
+      passiveDdPath,
+      hoverLabel,
+      hoverDev,
+      hoverPassive,
+      devTrough: d ? M.pct(d.books.development.summary.max_drawdown_pct, 2) : em,
+      passiveTrough: d ? M.pct(d.books.passive.summary.max_drawdown_pct, 2) : em,
+
+      annual,
+      histogram,
+      accounting,
+      tradesPerYear: d ? d.trades.per_year.toFixed(0) : em,
+
+      tradeStats: d
+        ? [
+            { k: "Completed trades", v: d.trades.count.toLocaleString("en-US"), note: d.trades.per_year.toFixed(1) + " per year" },
+            { k: "Win rate", v: M.pct(d.trades.win_rate), note: "of completed trades" },
+            { k: "Expectancy", v: M.money(d.trades.expectancy), note: "per trade, net" },
+            { k: "Average winner", v: M.money(d.trades.winner_mean), note: "median " + M.money(d.trades.winner_median) },
+            { k: "Average loser", v: M.money(d.trades.loser_mean), note: "median " + M.money(d.trades.loser_median) },
+            { k: "Best trade", v: M.money(d.trades.best), note: "single completed trade" },
+            { k: "Worst trade", v: M.money(d.trades.worst), note: "single completed trade" },
+            { k: "Spread paid", v: M.money(-168815.5), note: "across the replay" },
+          ]
+        : [],
+
+      sizing: d
+        ? [
+            { k: "Sizing rule", v: "notional fraction" },
+            { k: "Target market volatility", v: "10.0% annual" },
+            { k: "Target notional leverage", v: "1.00\u00d7" },
+            { k: "Maximum leverage", v: "20.0\u00d7" },
+            { k: "ATR estimate", v: "14 hours" },
+            { k: "Administrative financing", v: "2.5% annual, 5pm ET snapshot" },
+            { k: "Maximum units held", v: String(d.scaling.max_units) },
+            { k: "Mean units in market", v: d.scaling.mean_units_in_market.toFixed(1) },
+            { k: "Mean leverage in market", v: d.scaling.mean_leverage_in_market.toFixed(3) + "\u00d7" },
+            { k: "Equity path max error", v: "$0.00" },
+            { k: "Trade accounting max error", v: "$0.00" },
+            { k: "Reconciliation tolerance", v: "$0.001" },
+            { k: "Reconciliation", v: "pass" },
+          ]
+        : [],
+
+      caveats: [
+        {
+          h: "Not out-of-sample",
+          b: "The feature subset, policy band and hold cap shown were chosen with sight of this window. Development evidence supports the claim that a change improved the incumbent. It does not support a forecast, and the repository forbids using it as a sizing basis.",
+        },
+        {
+          h: "Not a live track record",
+          b: "This is a replay of a decision stream, not a broker statement. Fills are modelled on the active outright's raw minute open with one tick per side plus commission; a real account will differ. Collective2 keeps an independent record once the strategy trades there.",
+        },
+        {
+          h: "Not proof of alpha",
+          b: "Beating a passive long book over one window on one instrument is necessary, not sufficient. Separating predictive timing from passive beta and from ordinary trend-following requires the scorecard and holdout stages, which are not published here.",
+        },
+        {
+          h: "One instrument, one seed",
+          b: "These books replay a single seed on S&P 500 futures. Seed dispersion, other markets and capacity at larger size are separate questions, and the answer to each is currently \u201cnot established here\u201d rather than \u201cfine\u201d.",
+        },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
