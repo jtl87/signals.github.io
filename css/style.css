@@ -1087,3 +1087,297 @@ section {
     white-space: nowrap;
     border: 0;
 }
+
+/* ---------- Results Section ---------- */
+:root {
+    --color-passive: #7a9cc6;
+}
+
+.results {
+    background: var(--color-bg);
+}
+
+.results-grid {
+    display: grid;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 900px) {
+    .results-grid {
+        grid-template-columns: 5fr 7fr;
+        align-items: start;
+    }
+}
+
+.results-grid.annual {
+    margin-top: var(--space-lg);
+    margin-bottom: 0;
+}
+
+@media (min-width: 900px) {
+    .results-grid.annual {
+        grid-template-columns: 7fr 5fr;
+    }
+}
+
+.results-grid > * {
+    min-width: 0;
+}
+
+.results-card {
+    padding: var(--space-lg);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.results-card h4 {
+    font-family: var(--font-body);
+    font-weight: 500;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+}
+
+.results-card p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+}
+
+.results-card p + p {
+    margin-top: var(--space-sm);
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+}
+
+.results-table th {
+    padding: 0 0 var(--space-xs);
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-tertiary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.results-table td {
+    padding: 0.55rem 0;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border-subtle);
+    vertical-align: baseline;
+}
+
+.results-table tr:last-child td {
+    border-bottom: none;
+}
+
+.results-table td:first-child {
+    color: var(--color-text);
+}
+
+.results-table th:not(:first-child),
+.results-table td:not(:first-child) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    padding-left: var(--space-sm);
+}
+
+.results-table td.lead {
+    color: var(--color-text);
+}
+
+@media (min-width: 900px) {
+    .results-table td.lead {
+        white-space: nowrap;
+    }
+}
+
+.results-table td.muted {
+    color: var(--color-text-tertiary);
+    font-size: 0.8125rem;
+}
+
+.results-note {
+    margin-top: var(--space-sm);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-tertiary);
+}
+
+.metrics-caption {
+    margin-top: var(--space-sm);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-tertiary);
+    max-width: 720px;
+}
+
+/* Equity chart */
+.chart-card {
+    padding: var(--space-md);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+}
+
+.chart-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-xs) var(--space-md);
+    margin-bottom: var(--space-sm);
+}
+
+.chart-title {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--color-text);
+}
+
+.chart-legend {
+    display: flex;
+    gap: var(--space-md);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+}
+
+.legend-key {
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+    border-radius: 1px;
+}
+
+.legend-key.strategy {
+    background: var(--color-accent);
+}
+
+.legend-key.passive {
+    background: var(--color-passive);
+}
+
+.chart-plot {
+    position: relative;
+    width: 100%;
+    outline: none;
+    border-radius: 4px;
+}
+
+.chart-plot:focus-visible {
+    box-shadow: 0 0 0 2px var(--color-accent-subtle);
+}
+
+.chart-plot svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.chart-plot .grid line {
+    stroke: var(--color-border);
+    stroke-width: 1;
+}
+
+.chart-plot .axis text {
+    fill: var(--color-text-tertiary);
+    font-family: var(--font-body);
+    font-size: 11px;
+}
+
+.chart-plot .line-strategy {
+    fill: none;
+    stroke: var(--color-accent);
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    opacity: 0.7;
+}
+
+.chart-plot .line-passive {
+    fill: none;
+    stroke: var(--color-passive);
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.chart-plot .end-dot {
+    stroke: var(--color-bg-card);
+    stroke-width: 2;
+}
+
+.chart-plot .end-label {
+    fill: var(--color-text-secondary);
+    font-family: var(--font-body);
+    font-size: 12px;
+}
+
+.chart-plot .crosshair {
+    stroke: var(--color-text-tertiary);
+    stroke-width: 1;
+}
+
+.chart-plot .hover-dot {
+    stroke: var(--color-bg-card);
+    stroke-width: 2;
+}
+
+.chart-tooltip {
+    position: absolute;
+    z-index: 2;
+    padding: 0.5rem 0.75rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.chart-tooltip[hidden] {
+    display: none;
+}
+
+.chart-tooltip .tt-date {
+    margin-bottom: 0.3rem;
+    color: var(--color-text-tertiary);
+}
+
+.chart-tooltip .tt-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.chart-tooltip .tt-key {
+    width: 12px;
+    height: 2px;
+    border-radius: 1px;
+    flex-shrink: 0;
+}
+
+.chart-tooltip .tt-value {
+    color: var(--color-text);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+}
+
+.chart-note {
+    margin-top: var(--space-sm);
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: var(--color-text-tertiary);
+}

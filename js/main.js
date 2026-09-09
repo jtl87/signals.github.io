@@ -1,5 +1,5 @@
 /**
- * Meridian Signals — Main JavaScript
+ * Meridian Research — Main JavaScript
  * Minimal interactivity for navigation and tabs
  */
 

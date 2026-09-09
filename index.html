@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Systematic ES futures research using CME market data, XGBoost return forecasts, and a long, short or flat trading policy. Explore the methodology and evaluation process.">
+    <meta name="description" content="Systematic research on CME E-mini S&P 500 futures: XGBoost return forecasts every 15 minutes, a long, short or flat trading policy, and simulated results compared with passive long exposure.">
     <title>Meridian Research — Systematic ES Futures Research</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    
+
     <!-- Open Graph -->
     <meta property="og:title" content="Meridian Research — Systematic ES Futures Research">
-    <meta property="og:description" content="ES futures research with 15-minute decisions, XGBoost forecasts, and separate development, Scorecard and holdout evaluation stages.">
+    <meta property="og:description" content="ES futures research with 15-minute decisions, XGBoost return forecasts and a long, short or flat policy, measured against passive long exposure.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -32,8 +32,8 @@
             </a>
             <div class="nav-links">
                 <a href="#methodology">Methodology</a>
-                <a href="#performance">Evidence</a>
-                <a href="#approach">Approach</a>
+                <a href="#results">Results</a>
+                <a href="#approach">Explore</a>
                 <a href="#contact" class="nav-cta">Research Updates</a>
             </div>
             <button class="nav-toggle" aria-label="Toggle menu">
@@ -46,8 +46,8 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu">
         <a href="#methodology">Methodology</a>
-        <a href="#performance">Evidence</a>
-        <a href="#approach">Approach</a>
+        <a href="#results">Results</a>
+        <a href="#approach">Explore</a>
         <a href="#contact">Research Updates</a>
     </div>
 
@@ -58,7 +58,7 @@
             <div class="hero-content">
                 <p class="hero-eyebrow">Systematic Futures Research</p>
                 <h1 class="hero-title">A systematic approach<br>to ES futures.</h1>
-                <p class="hero-subtitle">Meridian Research studies the CME E-mini S&amp;P 500 futures market. XGBoost models forecast forward returns every 15 minutes; a defined trading policy translates those forecasts into long, short or flat exposure. The research tests whether those decisions add value beyond passive market exposure.</p>
+                <p class="hero-subtitle">Meridian Research studies the CME E-mini S&amp;P 500 futures market. XGBoost models forecast the next hour&rsquo;s return every 15 minutes, and a defined policy turns those forecasts into long, short or flat exposure. The question the research asks is simple: do those decisions add value beyond holding the market?</p>
                 <div class="hero-stats">
                     <div class="stat">
                         <span class="stat-value">ES</span>
@@ -73,8 +73,8 @@
                         <span class="stat-label">Forecast Horizon</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-value">3</span>
-                        <span class="stat-label">Model Ensemble</span>
+                        <span class="stat-value">11.5y</span>
+                        <span class="stat-label">Simulated History</span>
                     </div>
                 </div>
             </div>
@@ -91,11 +91,11 @@
             <div class="intro-grid">
                 <div class="intro-label">
                     <span>01</span>
-                    <span>Overview</span>
+                    <span>What We Test</span>
                 </div>
                 <div class="intro-content">
-                    <h2>From market data to forecasts, decisions and evidence.</h2>
-                    <p>The pipeline combines ES price, volume, volatility and session information with ZN Treasury futures context. It builds inputs from information available at each decision, trains return forecasts on earlier history, and replays the resulting positions with explicit trading costs. Development, chronological selection and holdout evaluation answer different questions about the system.</p>
+                    <h2>Skill beyond the market, or just the market?</h2>
+                    <p>Holding ES outright has paid well since 2013, so profit on its own proves nothing. Every result on this page is set against a passive long benchmark over the same dates, with the same costs and the same account rules. What the research measures is the part of the return that comes from timing: being long, short or flat at the right moments rather than simply being in the market.</p>
                 </div>
             </div>
         </div>
@@ -110,21 +110,21 @@
                     <span>Methodology</span>
                 </div>
                 <h2 class="section-title">From Data to Trading Decisions</h2>
-                <p class="section-desc">Three connected stages turn observed market data into forecasts and a repeatable trading policy.</p>
+                <p class="section-desc">Three stages turn market data into a forecast, and the forecast into a position.</p>
             </div>
 
             <div class="pipeline">
                 <div class="pipeline-phase">
                     <div class="phase-number">Phase 1</div>
                     <h3 class="phase-title">Market Features</h3>
-                    <p class="phase-desc">The system uses CME ES and ZN market data. Features combine minute-bar detail, 15-minute observations, completed hourly bars and prior sessions.</p>
+                    <p class="phase-desc">Inputs are built from CME ES price, volume and volatility at minute, 15-minute, hourly and daily resolution, plus session timing and the 10-year Treasury note future as context. Every input uses only information available at the moment of the decision.</p>
                     <div class="phase-detail">
                         <span class="detail-label">Output</span>
-                        <span class="detail-value">Price, Volume &amp; Session Context</span>
+                        <span class="detail-value">Price, volume, session &amp; rates context</span>
                     </div>
                     <div class="phase-detail">
                         <span class="detail-label">Purpose</span>
-                        <span class="detail-value">Inputs available at decision time</span>
+                        <span class="detail-value">Describe the market as it stood at decision time</span>
                     </div>
                 </div>
 
@@ -137,14 +137,14 @@
                 <div class="pipeline-phase">
                     <div class="phase-number">Phase 2</div>
                     <h3 class="phase-title">Return Forecasts</h3>
-                    <p class="phase-desc">Three XGBoost models are fitted per fold and their forecasts are averaged. The target is the forward log return over four decision steps, nominally one hour.</p>
+                    <p class="phase-desc">XGBoost models forecast the return over the next hour. They are retrained every six months on all prior history, and three models are trained each time and averaged to steady the forecast.</p>
                     <div class="phase-detail">
                         <span class="detail-label">Output</span>
-                        <span class="detail-value">One Forward-Return Score</span>
+                        <span class="detail-value">One forward-return score</span>
                     </div>
                     <div class="phase-detail">
                         <span class="detail-label">Purpose</span>
-                        <span class="detail-value">Estimate the next hour’s return</span>
+                        <span class="detail-value">Estimate the next hour&rsquo;s return</span>
                     </div>
                 </div>
 
@@ -157,7 +157,7 @@
                 <div class="pipeline-phase">
                     <div class="phase-number">Phase 3</div>
                     <h3 class="phase-title">Trading Policy</h3>
-                    <p class="phase-desc">A rolling percentile policy enters long from flat and can reverse between long and short. Session rules and holding limits close exposure to flat.</p>
+                    <p class="phase-desc">The policy acts on rank, not on the raw number. An unusually high forecast relative to recent history opens a long, an unusually low one reverses it into a short, and a recovering forecast reverses back. Time limits and a daily flat window close positions whatever the forecast says.</p>
                     <div class="phase-detail">
                         <span class="detail-label">Output</span>
                         <span class="detail-value">Long / Short / Flat</span>
@@ -171,7 +171,7 @@
         </div>
     </section>
 
-    <!-- Risk Management -->
+    <!-- Exposure & Costs -->
     <section class="risk">
         <div class="container">
             <div class="risk-grid">
@@ -181,103 +181,163 @@
                         <span>Exposure &amp; Costs</span>
                     </div>
                     <h2>Defined exposure rules. Explicit trading costs.</h2>
-                    <p>Research evaluates a one-contract ES strategy separately from account sizing. The default account replay uses whole MES contracts with a 1× notional exposure target and an 8× entry cap. These settings govern position size; losses still depend on market moves and when the policy exits.</p>
+                    <p>The strategy trades one contract at a time and never adds to a position. Hold limits and a daily flat window cap how long any position can run, regardless of the forecast. Every simulated fill pays the bid-ask spread and commission. Account sizing is kept separate from the signal research: the signal is judged on a single contract first, then replayed as an account in whole contracts.</p>
                 </div>
                 <div class="risk-layers">
                     <div class="layer">
                         <span class="layer-num">01</span>
-                        <span class="layer-name">One-Contract ES Research Book</span>
+                        <span class="layer-name">One contract at a time, no pyramiding</span>
                     </div>
                     <div class="layer">
                         <span class="layer-num">02</span>
-                        <span class="layer-name">Independent Long &amp; Short Exit Rules</span>
+                        <span class="layer-name">Hold limits of 14 hours long and 16 hours short</span>
                     </div>
                     <div class="layer">
                         <span class="layer-num">03</span>
-                        <span class="layer-name">Forecast History Warmup Before Entry</span>
+                        <span class="layer-name">Flat every day from 14:00 to 17:00 CT</span>
                     </div>
                     <div class="layer">
                         <span class="layer-num">04</span>
-                        <span class="layer-name">Long &amp; Short Holding Limits</span>
-                    </div>
-                    <div class="layer">
-                        <span class="layer-num">05</span>
-                        <span class="layer-name">14:00–17:00 CT Flat Window</span>
-                    </div>
-                    <div class="layer">
-                        <span class="layer-num">06</span>
-                        <span class="layer-name">Whole-Contract Account Sizing</span>
-                    </div>
-                    <div class="layer">
-                        <span class="layer-num">07</span>
-                        <span class="layer-name">Notional Target &amp; Entry Leverage Cap</span>
-                    </div>
-                    <div class="layer">
-                        <span class="layer-num">08</span>
-                        <span class="layer-name">Raw Active-Contract Fill Prices</span>
-                    </div>
-                    <div class="layer">
-                        <span class="layer-num">09</span>
-                        <span class="layer-name">Spread &amp; Commission on Each Fill</span>
-                    </div>
-                    <div class="layer">
-                        <span class="layer-num">10</span>
-                        <span class="layer-name">Two Fills per Reversal or Held Roll</span>
+                        <span class="layer-name">Spread and commission paid on every fill</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Performance / Validation -->
-    <section id="performance" class="validation">
+    <!-- Results -->
+    <section id="results" class="results">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">
                     <span>04</span>
-                    <span>Performance &amp; Validation</span>
+                    <span>Results</span>
                 </div>
-                <h2 class="section-title">Development Account Performance</h2>
-                <p class="section-desc">Simulated MES account results for 17 June 2013–31 December 2024, starting from $100,000 with a 1× notional exposure target. The figures below are from seed 0. Development history influenced selection, so these results are not an expected-return estimate.</p>
+                <h2 class="section-title">Strategy versus passive long, 2013 to 2024</h2>
+                <p class="section-desc">Simulated MES account from 17 June 2013 to 31 December 2024, starting at $100,000 with a 1&times; notional exposure target, after spread and commission. The strategy was configured while looking at this period, so read these figures as an upper bound on what the approach has done, not as an expectation of what it will do.</p>
             </div>
 
-            <div class="validation-grid">
-                <div class="validation-card">
-                    <h4>Development</h4>
-                    <p>The account grew from $100,000 to $927,936 after modeled costs, across 6,013 completed trades. This is one run from the five-seed set, not the average across all five seeds.</p>
-                </div>
-                <div class="validation-card">
-                    <h4>Chronological Scorecard</h4>
-                    <p>Select features and policy using only history before each forward year, then replay that year. If no policy qualifies, the incumbent is used and that year is labelled non-blind.</p>
-                </div>
-                <div class="validation-card">
-                    <h4>Frozen-Line Holdout</h4>
-                    <p>Freeze a configuration before inspecting untouched outcomes. Holdout is a one-use go/no-go check for that line; earlier long-only results do not validate the current reversal policy.</p>
-                </div>
-                <div class="validation-card">
-                    <h4>Passive-Long Comparison</h4>
-                    <p>Over the same dates and account conventions, passive long returned 11.01% CAGR, with 0.66 Sharpe and 34.27% maximum daily drawdown. Its final equity was $333,799.</p>
-                </div>
-            </div>
-
-            <!-- Source: 20260906T091255Z-es-seed-0/account/summary.json; account.v3; development; seed 0. -->
+            <!-- Source: artifacts/shipped/5-seed/*/account/summary.json; account.v3; development stage; five runs. -->
             <!-- CAGR over calendar time; Sharpe from UTC daily returns annualised by sqrt(252); close-to-close drawdown. -->
+            <div class="results-grid">
+                <div class="results-card">
+                    <h4>Account summary</h4>
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Strategy</th>
+                                <th>Passive long</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>CAGR</td>
+                                <td class="lead">19.8% to 22.1%</td>
+                                <td>11.0%</td>
+                            </tr>
+                            <tr>
+                                <td>Sharpe, annualised</td>
+                                <td class="lead">1.27 to 1.42</td>
+                                <td>0.66</td>
+                            </tr>
+                            <tr>
+                                <td>Max drawdown</td>
+                                <td class="lead">13.1% to 20.6%</td>
+                                <td>34.3%</td>
+                            </tr>
+                            <tr>
+                                <td>Final equity</td>
+                                <td class="lead">$807k to $1.0M</td>
+                                <td>$334k</td>
+                            </tr>
+                            <tr>
+                                <td>Positive years</td>
+                                <td class="lead">10 to 11 of 12</td>
+                                <td>10 of 12</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="results-note">Strategy ranges span five training runs that differ only in the random seed used to fit the models. Passive long holds the same notional exposure throughout and pays the same costs.</p>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-head">
+                        <span class="chart-title">Account equity, log scale</span>
+                        <div class="chart-legend">
+                            <span><span class="legend-key strategy"></span>Strategy, five runs</span>
+                            <span><span class="legend-key passive"></span>Passive long</span>
+                        </div>
+                    </div>
+                    <div id="equity-chart" class="chart-plot" tabindex="0" aria-describedby="chart-note"></div>
+                    <p id="chart-note" class="chart-note">Weekly account equity in USD. Hover or use the arrow keys to read values; the annual table below carries the same data.</p>
+                </div>
+            </div>
+
+            <!-- Source: artifacts/shipped/5-seed/*/backtest/attribution.json (full window) and backtest/activity.txt; unit ES book. -->
             <div class="metrics-preview">
                 <div class="metric">
-                    <span class="metric-label">Annual Return (CAGR)</span>
-                    <span class="metric-value">21.29%</span>
+                    <span class="metric-label">Beta to ES</span>
+                    <span class="metric-value">0.34 to 0.36</span>
                 </div>
                 <div class="metric">
-                    <span class="metric-label">Annualised Sharpe</span>
-                    <span class="metric-value">1.42</span>
+                    <span class="metric-label">Timing alpha, t-stat</span>
+                    <span class="metric-value">7.2 to 7.7</span>
                 </div>
                 <div class="metric">
-                    <span class="metric-label">Max Drawdown (Daily)</span>
-                    <span class="metric-value">14.47%</span>
+                    <span class="metric-label">Time in market</span>
+                    <span class="metric-value">48%</span>
                 </div>
                 <div class="metric">
-                    <span class="metric-label">Net Profit (USD)</span>
-                    <span class="metric-value">$827,936</span>
+                    <span class="metric-label">Profitable months</span>
+                    <span class="metric-value">94 to 100 of 144</span>
+                </div>
+            </div>
+            <p class="metrics-caption">Beta measures how much of the strategy&rsquo;s return moves with the market; a value near one would mean the strategy is mostly just long. The timing t-statistic tests whether the return that remains after removing market exposure is distinguishable from zero. Both are measured on a single-contract book over the full window.</p>
+
+            <div class="results-grid annual">
+                <div class="results-card">
+                    <h4>Annual returns</h4>
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Strategy</th>
+                                <th>Run range</th>
+                                <th>Passive long</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>2013</td><td class="lead">5.5%</td><td class="muted">3.7% to 7.8%</td><td>12.1%</td></tr>
+                            <tr><td>2014</td><td class="lead">&minus;5.4%</td><td class="muted">&minus;7.3% to &minus;3.8%</td><td>13.3%</td></tr>
+                            <tr><td>2015</td><td class="lead">6.9%</td><td class="muted">4.3% to 12.4%</td><td>0.9%</td></tr>
+                            <tr><td>2016</td><td class="lead">4.8%</td><td class="muted">1.1% to 8.3%</td><td>11.2%</td></tr>
+                            <tr><td>2017</td><td class="lead">7.2%</td><td class="muted">5.4% to 11.0%</td><td>18.1%</td></tr>
+                            <tr><td>2018</td><td class="lead">&minus;5.1%</td><td class="muted">&minus;11.4% to 1.1%</td><td>&minus;6.3%</td></tr>
+                            <tr><td>2019</td><td class="lead">11.4%</td><td class="muted">8.6% to 14.9%</td><td>27.6%</td></tr>
+                            <tr><td>2020</td><td class="lead">113.7%</td><td class="muted">97.3% to 129.4%</td><td>15.3%</td></tr>
+                            <tr><td>2021</td><td class="lead">40.3%</td><td class="muted">36.1% to 44.6%</td><td>27.1%</td></tr>
+                            <tr><td>2022</td><td class="lead">51.3%</td><td class="muted">42.1% to 58.7%</td><td>&minus;19.1%</td></tr>
+                            <tr><td>2023</td><td class="lead">40.7%</td><td class="muted">36.2% to 46.5%</td><td>18.7%</td></tr>
+                            <tr><td>2024</td><td class="lead">12.0%</td><td class="muted">9.4% to 20.3%</td><td>18.1%</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="results-note">Strategy is the mean of the five runs; the range shows the lowest and highest run. 2013 covers 17 June to 31 December. Returns before 2020 were modest and the account compounds, so the later years carry most of the dollar gain.</p>
+                </div>
+
+                <div>
+                    <div class="results-card">
+                        <h4>By direction</h4>
+                        <p>Long trades make up about three quarters of all trades and three quarters to four fifths of the profit. Short trades are fewer, shorter and less profitable: they lost money in most years before 2020 and only became consistently profitable from 2020 onward.</p>
+                    </div>
+                    <div class="results-card" style="margin-top: var(--space-md);">
+                        <h4>After costs</h4>
+                        <p>Every fill pays the spread and commission. Across the five runs those costs consumed 24% to 26% of gross account profit. The figures above are net of them.</p>
+                    </div>
+                    <div class="results-card" style="margin-top: var(--space-md);">
+                        <h4>Where the edge shows up</h4>
+                        <p>The timing component is strongest when volatility is high and weakest when it is low, and the strategy made money in 2022 while the market fell. Both are what a timing edge, rather than a leveraged market bet, should look like.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -292,7 +352,7 @@
                     <span>Understanding the System</span>
                 </div>
                 <h2 class="section-title">Two Ways to Explore the Research</h2>
-                <p class="section-desc">Start with the plain-language overview, or explore the model, trading policy and evaluation process in more detail.</p>
+                <p class="section-desc">Start with the plain-language overview, or go straight to the specification behind the results.</p>
             </div>
 
             <div class="approach-tabs">
@@ -306,8 +366,8 @@
                     <div class="approach-grid">
                         <div class="approach-main">
                             <h3>One market. Three possible positions.</h3>
-                            <p>The system studies whether forecasts can help time exposure to the S&amp;P 500 futures market. Long means exposure to rising prices, short means exposure to falling prices, and flat means no position. It starts with a long entry, can reverse direction as forecast rankings change, and closes for session or holding limits.</p>
-                            
+                            <p>The system studies whether forecasts can help time exposure to the S&amp;P 500 futures market. Long means it profits if prices rise, short means it profits if prices fall, and flat means no position at all. It goes long when the forecast is unusually strong, flips direction when the forecast turns, and closes when a time limit or the daily flat window arrives.</p>
+
                             <div class="benefit-list">
                                 <div class="benefit">
                                     <div class="benefit-icon">
@@ -317,18 +377,7 @@
                                     </div>
                                     <div class="benefit-text">
                                         <strong>A Regular Decision Cycle</strong>
-                                        <span>New decisions every 15 minutes using available market information</span>
-                                    </div>
-                                </div>
-                                <div class="benefit">
-                                    <div class="benefit-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                            <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                        </svg>
-                                    </div>
-                                    <div class="benefit-text">
-                                        <strong>Defined Position Changes</strong>
-                                        <span>Forecast rankings guide entries and reversals; time limits close exposure</span>
+                                        <span>A fresh decision every 15 minutes, using only information available at that moment</span>
                                     </div>
                                 </div>
                                 <div class="benefit">
@@ -338,8 +387,19 @@
                                         </svg>
                                     </div>
                                     <div class="benefit-text">
-                                        <strong>Separate Account Sizing</strong>
-                                        <span>Account replay converts the strategy’s positions into whole futures contracts</span>
+                                        <strong>Rank-Based Decisions</strong>
+                                        <span>It acts only when a forecast is unusually high or low compared with recent forecasts, not on the raw number</span>
+                                    </div>
+                                </div>
+                                <div class="benefit">
+                                    <div class="benefit-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="benefit-text">
+                                        <strong>Time Limits on Every Position</strong>
+                                        <span>No position runs longer than 14 hours long or 16 hours short, and everything is flat from 14:00 to 17:00 CT</span>
                                     </div>
                                 </div>
                                 <div class="benefit">
@@ -349,8 +409,8 @@
                                         </svg>
                                     </div>
                                     <div class="benefit-text">
-                                        <strong>Evidence You Can Interpret</strong>
-                                        <span>Each result must identify its dates, assumptions and research stage</span>
+                                        <strong>What It Looks Like in Practice</strong>
+                                        <span>In the market about half the time, roughly 520 trades a year, and a typical hold of around five hours</span>
                                     </div>
                                 </div>
                             </div>
@@ -359,11 +419,11 @@
                             <div class="aside-card">
                                 <h4>What the Research Covers</h4>
                                 <ul>
-                                    <li>ES market data and ZN context</li>
+                                    <li>ES market data with ZN as context</li>
                                     <li>Forward-return forecasting</li>
                                     <li>Long, short and flat decisions</li>
                                     <li>Session and holding limits</li>
-                                    <li>ES and MES account replay</li>
+                                    <li>Account replay in whole contracts</li>
                                     <li>Spread, commission and roll costs</li>
                                 </ul>
                             </div>
@@ -375,82 +435,86 @@
                 <div class="tab-content" id="advanced">
                     <div class="approach-grid">
                         <div class="approach-main">
-                            <h3>The model, policy and evaluation contracts.</h3>
-                            <p>The current composition uses a selected feature subset, a three-member XGBoost ensemble and a causal percentile policy. Research records distinguish configuration, selection and evaluation.</p>
-                            
+                            <h3>Specification.</h3>
+                            <p>The current configuration: a selected feature subset, a three-member XGBoost ensemble and a rank-based reversal policy, evaluated walk-forward with purge and embargo. These are the parameters that produce the results above.</p>
+
                             <div class="tech-specs">
                                 <div class="spec-group">
-                                    <h4>Data &amp; Forecasting</h4>
+                                    <h4>Data &amp; Target</h4>
                                     <div class="spec-items">
                                         <div class="spec">
-                                            <code>CME</code>
-                                            <span>ES market data with ZN as a contextual input</span>
-                                        </div>
-                                        <div class="spec">
-                                            <code>XGBoost</code>
-                                            <span>Three averaged regressors with pseudo-Huber loss</span>
-                                        </div>
-                                        <div class="spec">
-                                            <code>Forward Return</code>
-                                            <span>Raw log-return target over four 15-minute steps</span>
-                                        </div>
-                                        <div class="spec">
-                                            <code>Early Stopping</code>
-                                            <span>Inner chronological data selects boosting rounds</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="spec-group">
-                                    <h4>Policy &amp; Execution</h4>
-                                    <div class="spec-items">
-                                        <div class="spec">
-                                            <code>Long Entry</code>
-                                            <span>From flat, enter above the prior-score entry percentile</span>
-                                        </div>
-                                        <div class="spec">
-                                            <code>Reversals</code>
-                                            <span>Long exits below its cutoff into short; short exits above its own into long</span>
+                                            <code>Data</code>
+                                            <span>CME ES and ZN minute bars via Databento, aggregated to 15-minute, hourly and daily bars</span>
                                         </div>
                                         <div class="spec">
                                             <code>Price Basis</code>
-                                            <span>Adjusted history for features and labels; raw minute opens for fills</span>
+                                            <span>Roll-adjusted continuous series for features and labels; raw active-contract prices for fills</span>
+                                        </div>
+                                        <div class="spec">
+                                            <code>Target</code>
+                                            <span>Forward log return over four 15-minute steps, one hour</span>
+                                        </div>
+                                        <div class="spec">
+                                            <code>Features</code>
+                                            <span>29 inputs selected from a larger registry: ATR-scaled returns from 15 minutes to 24 hours, price location within session and hourly ranges, realised-volatility and volume ratios, RSI and EMA spreads, session clock, and ES&ndash;ZN correlation and divergence</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="spec-group">
-                                    <h4>Optimization Framework</h4>
+                                    <h4>Model &amp; Validation</h4>
                                     <div class="spec-items">
                                         <div class="spec">
-                                            <code>Optuna TPE</code>
-                                            <span>Separate feature, model and policy studies</span>
+                                            <code>XGBoost</code>
+                                            <span>Three regressors averaged; pseudo-Huber objective; depth 8; learning rate 0.008; row and column subsampling</span>
                                         </div>
                                         <div class="spec">
-                                            <code>Policy Ranking</code>
-                                            <span>Mean seed Sharpe minus a weighted seed-variability penalty</span>
+                                            <code>Early Stopping</code>
+                                            <span>Boosting rounds chosen on the six months before each forecast window</span>
                                         </div>
                                         <div class="spec">
-                                            <code>Yearly Selection</code>
-                                            <span>Full feature registry first, then policy, using only each historical prefix</span>
+                                            <code>Walk-Forward</code>
+                                            <span>Expanding window; 24 six-month folds from 2013 to 2024; one-day embargo; purge where labels cross a boundary</span>
+                                        </div>
+                                        <div class="spec">
+                                            <code>Skill</code>
+                                            <span>Mean out-of-sample rank correlation 0.056, positive in 24 of 24 folds; directional hit rate 51% to 54% per fold</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="spec-group">
-                                    <h4>Infrastructure</h4>
+                                    <h4>Policy</h4>
                                     <div class="spec-items">
                                         <div class="spec">
-                                            <code>NumPy / Arrow</code>
-                                            <span>Numerical arrays and persisted Parquet evidence</span>
+                                            <code>Long Entry</code>
+                                            <span>From flat, when the score exceeds the 70th percentile of the prior 96,000 scores, about four years</span>
                                         </div>
                                         <div class="spec">
-                                            <code>Numba JIT</code>
-                                            <span>Compiled feature, percentile and backtest kernels</span>
+                                            <code>Reversals</code>
+                                            <span>A long falling below the 10th percentile closes straight into a short; a short rising above the 80th percentile of its own 18,000-score window closes straight into a long</span>
                                         </div>
                                         <div class="spec">
-                                            <code>SQLite</code>
-                                            <span>Optuna studies with saved choices and run records</span>
+                                            <code>Limits</code>
+                                            <span>Maximum hold 14 hours long and 16 hours short; flat 14:00 to 17:00 CT; invalid inputs and limits close to flat without reversing</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="spec-group">
+                                    <h4>Execution &amp; Account</h4>
+                                    <div class="spec-items">
+                                        <div class="spec">
+                                            <code>Fills</code>
+                                            <span>Next raw minute open of the active contract; 0.125 points spread cost plus $2.50 commission per side on ES; a roll is booked as two fills</span>
+                                        </div>
+                                        <div class="spec">
+                                            <code>Account</code>
+                                            <span>$100,000 in whole MES contracts sized to 1&times; notional at entry and held fixed for the trade; $0.75 commission per side</span>
+                                        </div>
+                                        <div class="spec">
+                                            <code>Costs</code>
+                                            <span>Spread and commission consumed 24% to 26% of gross account profit across the five runs</span>
                                         </div>
                                     </div>
                                 </div>
@@ -470,32 +534,40 @@
                                     </tr>
                                     <tr>
                                         <td>Percentiles</td>
-                                        <td>Prior valid scores</td>
+                                        <td>Prior scores only</td>
                                     </tr>
                                     <tr>
-                                        <td>Holdout</td>
-                                        <td>Frozen line, one use</td>
+                                        <td>Retraining</td>
+                                        <td>Prior history only</td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="aside-card dark">
-                                <h4>Interpreting Results</h4>
+                                <h4>Attribution, Unit Book</h4>
                                 <table class="spec-table">
                                     <tr>
-                                        <td>Development</td>
-                                        <td>Selection evidence</td>
+                                        <td>Beta to ES</td>
+                                        <td>0.34 to 0.36</td>
                                     </tr>
                                     <tr>
-                                        <td>Scorecard</td>
-                                        <td>Planning estimate</td>
+                                        <td>Alpha t-stat</td>
+                                        <td>7.1 to 7.6</td>
                                     </tr>
                                     <tr>
-                                        <td>Holdout</td>
-                                        <td>Go / no-go</td>
+                                        <td>Timing t, low vol</td>
+                                        <td>2.2 to 2.9</td>
                                     </tr>
                                     <tr>
-                                        <td>Passive long</td>
-                                        <td>Market benchmark</td>
+                                        <td>Timing t, mid vol</td>
+                                        <td>2.6 to 3.9</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Timing t, high vol</td>
+                                        <td>5.6 to 6.6</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Exposure fraction</td>
+                                        <td>0.48 to 0.49</td>
                                     </tr>
                                 </table>
                             </div>
@@ -519,24 +591,20 @@
 
             <div class="faq-grid">
                 <div class="faq-item">
-                    <h4>What is the research trying to establish?</h4>
-                    <p>The objective is predictive value beyond passive market exposure. The research compares the strategy with passive long exposure and examines timing, costs and results by direction. Profit in a rising market alone does not establish an edge.</p>
+                    <h4>Isn&rsquo;t this just exposure to a rising market?</h4>
+                    <p>That is the first thing the research checks. Beta to ES is about 0.35, the strategy is in the market only about half the time, and it made money in 2022 while the market fell. The timing component that remains after removing market exposure has a t-statistic above 7. Profit in a rising market alone would not establish an edge; these are the tests that do.</p>
                 </div>
                 <div class="faq-item">
                     <h4>What markets do you cover?</h4>
-                    <p>The current research trades ES, the CME E-mini S&amp;P 500 future. ZN, the 10-year Treasury note future, supplies context and is not traded by the strategy. Account replay can size the ES decision stream using ES or Micro E-mini S&amp;P 500 (MES) contract terms; the default uses MES.</p>
+                    <p>ES, the CME E-mini S&amp;P 500 future, is the only traded market. ZN, the 10-year Treasury note future, is an input and is never traded. The account replay sizes the same decisions in Micro E-mini (MES) contracts and can use full ES contracts instead.</p>
                 </div>
                 <div class="faq-item">
                     <h4>What is walk-forward validation?</h4>
-                    <p>The model trains on earlier history and predicts a later period. The current setup uses expanding training history, six-month forward folds and a one-day embargo, with purging where labels cross a split. Repeatedly using those results to choose a system still makes them development evidence; Scorecard and holdout address selection and final evaluation separately.</p>
+                    <p>Models are trained on history up to a cut-off and then forecast the following six months, which they have never seen. The cut-off rolls forward every six months, so every forecast in the results comes from a model with no access to that period. The configuration itself was still chosen using these results, which is why they are an upper bound rather than a forecast.</p>
                 </div>
                 <div class="faq-item">
                     <h4>How does account sizing work?</h4>
-                    <p>The default replay starts with $100,000 of simulated capital and a 1× notional target in whole MES contracts, subject to an 8× entry cap. Sizing is locked until exit or reversal. This is a research assumption, not a minimum deposit recommendation or a fixed percentage loss limit. Small accounts are constrained by whole-contract sizing.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>Are signals or automated trading available?</h4>
-                    <p>Service availability and pricing are to be confirmed. Telegram and Discord updates, Collective2 access and hosted automation are planned options. This page describes the research methodology; it does not present a live track record or a verified connection to those services.</p>
+                    <p>The replay starts with $100,000 and sizes each trade to about 1&times; notional in whole MES contracts, fixed for the life of the trade. This is a research convention, not a recommendation for a minimum account size or a loss limit. Smaller accounts are constrained by whole-contract sizing.</p>
                 </div>
             </div>
         </div>
@@ -547,7 +615,7 @@
         <div class="container">
             <div class="contact-content">
                 <h2>Follow the Research</h2>
-                <p>Telegram, Discord, Collective2 and hosted automation are planned; destinations and launch details are to be confirmed. Explore the methodology and evidence framework here while service access is being defined.</p>
+                <p>Telegram, Discord, Collective2 and hosted automation are planned; destinations and launch details are to be confirmed. The methodology and results above describe the current state of the research.</p>
                 <a href="#methodology" class="contact-btn">
                     <span>Explore the Methodology</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -567,15 +635,17 @@
                     <span class="logo-text">Meridian Research</span>
                 </div>
                 <div class="footer-disclaimer">
-                    <p>Futures trading involves substantial risk of loss. Research and simulated results do not guarantee future performance. This site describes research for informational purposes; trading decisions remain your responsibility.</p>
+                    <p>Futures trading involves substantial risk of loss. All results on this page are simulated, were used in selecting the strategy shown, and do not guarantee future performance. This site describes research for informational purposes; trading decisions remain your responsibility.</p>
                 </div>
                 <div class="footer-bottom">
-                    <span>© 2026 Meridian Research</span>
+                    <span>&copy; 2026 Meridian Research</span>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/equity-data.js"></script>
+    <script src="js/chart.js"></script>
 </body>
 </html>
